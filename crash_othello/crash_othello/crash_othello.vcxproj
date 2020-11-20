@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\othello.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\main.h" />
+    <ClInclude Include="source\othello.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
