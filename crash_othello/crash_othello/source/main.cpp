@@ -1,6 +1,10 @@
 ﻿#include "common.h"
 #include "main.h"
 
+Othello othello;
+int map[col][row];
+Piece phase = kWhite;
+
 void GameProcessing();
 void DrawProcessing();
 
@@ -47,10 +51,37 @@ int WINAPI WinMain(
 
 void  GameProcessing()
 {
-
+	othello.InitBoard(map);
+	othello.MoveCursor(&othello.X, &othello.Y);
+	if (map[othello.Y][othello.X] == Piece::kNone && CheckHitKey(KEY_INPUT_RETURN) == 1)
+	{
+		map[othello.Y][othello.X] = phase;
+		othello.TurnOverMethod(&othello.X, &othello.Y, map, phase);
+		switch (phase)
+		{
+		case Piece::kWhite:
+			phase = Piece::kBlack;
+			break;
+		case Piece::kBlack:
+			phase = Piece::kWhite;
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void DrawProcessing()
 {
-
+	othello.DrawOthello(map);
+	for (int i = 0; i < col; i++)
+	{
+		for (int j = 0; j < col; j++)
+		{
+			DrawBox(i * 45, j * 45, (i + 1) * 45, (j + 1) * 45, GetColor(0, 0, 255), false);
+		}
+	}
+	DrawBox(othello.X * 45, othello.Y * 45, (othello.X + 1) * 45, (othello.Y + 1) * 45, GetColor(255, 0, 0), false);
+	DrawBox(othello.X * 45+1, othello.Y * 45+1, (othello.X + 1) * 45-1, (othello.Y + 1) * 45-1, GetColor(255, 0, 0), false);
+	DrawCircle(472.5f, 67.5f, 22.5f, GetColor(0, 0, 0), true);
 }
