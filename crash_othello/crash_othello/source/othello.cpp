@@ -270,14 +270,7 @@ void Othello::TurnOver(Direction* direction, int *X, int *Y, int map[][row], Pie
 	}
 	else if (map[*Y][*X] == phase)
 	{
-		if (CanTurnOver)
-		{
-			return;
-		}
-		else
-		{
-			TurnOver(direction, X, Y, map, phase);
-		}
+		return;
 	}
 	else if (map[*Y][*X] != phase)
 	{
