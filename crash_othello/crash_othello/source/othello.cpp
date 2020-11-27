@@ -150,113 +150,113 @@ void Othello::TurnOver(Direction* direction, int *X, int *Y, int map[][row], Pie
 	case Direction::kUp:
 		if (*Y - 1 < 0)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kUpRight:
 		if (*X + 1 >= row || *Y - 1 < 0)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kRight:
 		if (*X + 1 >= row)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kDownRight:
 		if (*X + 1 >= row || *Y + 1 >= col)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kDown:
 		if (*Y + 1 >= col)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kDownLeft:
 		if (*X - 1 < 0 || *Y + 1 >= col)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kLeft:
 		if (*X - 1 < 0)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	case Direction::kUpLeft:
 		if (*X - 1 < 0 || *Y - 1 < 0)
 		{
-			if (CountTurnOver <= 2)
-			{
+			//if (CountTurnOver <= 2)
+			//{
 				CanTurnOver = false;
 				return;
-			}
-			else
-			{
-				return;
-			}
+			//}
+			//else
+			//{
+			//	return;
+			//}
 		}
 		break;
 	}
