@@ -47,10 +47,24 @@ int WINAPI WinMain(
 
 void  GameProcessing()
 {
+	if (!piece.Init)
+	{
+		piece.SetV(1500);
+		piece.SetTheta(15);
+		piece.pos_x = 320;
+		piece.pos_y = 240;
+		piece.Init = true;
+	}
 
+	if (CheckHitKey(KEY_INPUT_SPACE) == 1)
+	{
+		piece.SetV(1000);
+	}
+
+	piece.Calculate();
 }
 
 void DrawProcessing()
 {
-
+	DrawCircle(piece.pos_x, piece.pos_y, 22.5f, GetColor(0, 0, 0), true);
 }

@@ -19,9 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Collision.cpp" />
+    <ClCompile Include="source\Piece.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Collision.h" />
+    <ClInclude Include="source\Piece.h" />
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\main.h" />
   </ItemGroup>
