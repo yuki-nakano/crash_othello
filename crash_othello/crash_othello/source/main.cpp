@@ -30,6 +30,9 @@ int WINAPI WinMain(
 		}
 		else
 		{
+			//フレームごとの初期化
+			UpdateKeyStatus();
+
 			//ゲーム処理
 			GameProcessing();
 
