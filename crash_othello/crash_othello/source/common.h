@@ -3,5 +3,7 @@
 
 #include "DxLib.h"
 #include "Input.h"
+#include "Definition.h"
+#include "Status.h"
 
 #endif // !COMMON_H

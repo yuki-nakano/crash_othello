@@ -12,13 +12,17 @@ int WINAPI WinMain(
 {
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(Widht, Height, 16);
+	SetGraphMode(definition.Widht, definition.Height, 16);
 	SetBackgroundColor(255, 255, 255);
+	SetMainWindowText("CrashOthello");
+
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
 		return -1;			// エラーが起きたら直ちに終了
 	}
+
+	SetDrawScreen(DX_SCREEN_BACK);
 
 	while (true)
 	{
@@ -30,7 +34,7 @@ int WINAPI WinMain(
 		}
 		else
 		{
-			//フレームごとの初期化
+			//フレームごとにキーの状態更新
 			UpdateKeyStatus();
 
 			//ゲーム処理

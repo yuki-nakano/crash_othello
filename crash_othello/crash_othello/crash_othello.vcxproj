@@ -24,8 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\common.h" />
+    <ClInclude Include="source\Definition.h" />
     <ClInclude Include="source\Input.h" />
     <ClInclude Include="source\main.h" />
+    <ClInclude Include="source\Status.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
