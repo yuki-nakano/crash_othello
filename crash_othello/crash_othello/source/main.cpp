@@ -12,7 +12,7 @@ int WINAPI WinMain(
 {
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(Widht, Height, 16);
+	SetGraphMode(definition.Widht, definition.Height, 16);
 	SetBackgroundColor(255, 255, 255);
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
@@ -47,24 +47,45 @@ int WINAPI WinMain(
 
 void  GameProcessing()
 {
-	if (!piece.Init)
+	for (int i = 0; i < 5; i++)
 	{
-		piece.SetV(1500);
-		piece.SetTheta(15);
-		piece.pos_x = 320;
-		piece.pos_y = 240;
-		piece.Init = true;
+		if (!piece[i].init)
+		{
+			if (i == 0)
+			{
+				piece[i].SetTheta(225.0f);
+			}
+			piece[i].pos_x = 200.0f * (i + 1);
+			piece[i].pos_y = 130.0f * (i + 1);
+			piece[i].init = true;
+			piece[i].color = kBlack;
+		}
 	}
 
+	piece[0].SetV(50);
 	if (CheckHitKey(KEY_INPUT_SPACE) == 1)
 	{
-		piece.SetV(1000);
+		piece[0].SetV(50);
+		piece[0].isMoving = true;
 	}
 
-	piece.Calculate();
+	for (int i = 0; i < 5; i++)
+	{
+		piece[i].CalculateV();
+
+		if (piece[i].isMoving)
+		{
+			collision.ReflectPiece(piece, i);
+		}
+	}
+
+	collision.ChengeIsMoving(piece);
 }
 
 void DrawProcessing()
 {
-	DrawCircle(piece.pos_x, piece.pos_y, 22.5f, GetColor(0, 0, 0), true);
+	for (int i = 0; i < 5; i++)
+	{
+		DrawCircle(piece[i].pos_x, piece[i].pos_y, 22.5f, GetColor(0, 0, 0), true);
+	}
 }

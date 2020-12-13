@@ -25,9 +25,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Collision.h" />
+    <ClInclude Include="source\Definition.h" />
     <ClInclude Include="source\Piece.h" />
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\main.h" />
+    <ClInclude Include="source\Status.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

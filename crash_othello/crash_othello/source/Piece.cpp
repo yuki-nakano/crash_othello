@@ -1,8 +1,8 @@
 #include "common.h"
 
-void Piece::Calculate()
+void Piece::CalculateV()
 {
-	if (!IsAlive)
+	if (!isMoving)
 	{
 		return;
 	}
@@ -29,9 +29,9 @@ void Piece::Decelerate()
 
 void Piece::Reflect()
 {
-	if (pos_x - 22.5f < left)
+	if (pos_x - kRadius < kLeft)
 	{
-		pos_x = left + 22.6f;
+		pos_x = kLeft + (kRadius + 0.1f);
 
 		if (Theta == 180)
 		{
@@ -48,9 +48,9 @@ void Piece::Reflect()
 
 		V *= 0.9f;
 	}
-	else if (pos_x + 22.5f > right)
+	else if (pos_x + kRadius > kRight)
 	{
-		pos_x = right - 22.6f;
+		pos_x = kRight - (kRadius + 0.1f);
 
 		if (Theta == 0 || Theta == 360)
 		{
@@ -67,9 +67,9 @@ void Piece::Reflect()
 
 		V *= 0.9f;
 	}
-	else if (pos_y - 22.5f < up)
+	else if (pos_y - kRadius < kUp)
 	{
-		pos_y = up + 22.6f;
+		pos_y = kUp + (kRadius + 0.1f);
 
 		if (Theta == 90)
 		{
@@ -86,9 +86,9 @@ void Piece::Reflect()
 
 		V *= 0.9f;
 	}
-	else if (pos_y + 22.5f > down)
+	else if (pos_y + kRadius > kDown)
 	{
-		pos_y = down - 22.6f;
+		pos_y = kDown - (kRadius + 0.1f);
 
 		if (Theta == 270)
 		{
@@ -114,11 +114,11 @@ void Piece::DecomposeVec()
 	{
 		V_X = 0;
 		V_Y = 0;
-		IsAlive = false;
+		isMoving = false;
 		return;
 	}
 	V_X = cosf(Theta * M_PI / 180) * V;
-	V_Y = sinf(Theta * M_PI / 180) * V;
+	V_Y = sinf(Theta * M_PI / 180) * V * -1;
 }
 
 void Piece::SetV(float v)
@@ -130,3 +130,4 @@ void Piece::SetTheta(float theta)
 {
 	Theta = theta;
 }
+

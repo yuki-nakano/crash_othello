@@ -1,8 +1,8 @@
 ﻿#ifndef MAIN_H
 #define MAIN_H
 
-const int Widht = 640;
-const int Height = 480;
-Piece piece;
+Definition definition;
+Piece piece[5];
+Collision collision;
 
 #endif // !MAIN_H
