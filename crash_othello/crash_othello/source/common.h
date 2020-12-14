@@ -5,5 +5,6 @@
 #include "Input.h"
 #include "Definition.h"
 #include "Status.h"
+#include "othello.h"
 
 #endif // !COMMON_H
