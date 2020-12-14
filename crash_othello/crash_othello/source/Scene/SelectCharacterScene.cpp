@@ -1,25 +1,25 @@
-#include "../common.h"
+ï»¿#include "../common.h"
 
 SelectCharacterScene::SelectCharacterScene()
 {
-	TextureData::BackGround_BLUE = LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_Â.jpg");
+	TextureData::BackGround_BLUE = LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é’.jpg");
 
-	TextureData::CharacterSelect = LoadGraph("res/ƒLƒƒƒ‰‘I‘ð.png");
+	TextureData::CharacterSelect = LoadGraph("res/ã‚­ãƒ£ãƒ©é¸æŠž.png");
 
-	TextureData::Character1 = LoadGraph("res/ƒLƒƒƒ‰1.png");
-	TextureData::Character2 = LoadGraph("res/ƒLƒƒƒ‰2.png");
-	TextureData::Character3 = LoadGraph("res/ƒLƒƒƒ‰3.png");
-	TextureData::Character4 = LoadGraph("res/ƒLƒƒƒ‰4.png");
+	TextureData::Character1 = LoadGraph("res/ã‚­ãƒ£ãƒ©1.png");
+	TextureData::Character2 = LoadGraph("res/ã‚­ãƒ£ãƒ©2.png");
+	TextureData::Character3 = LoadGraph("res/ã‚­ãƒ£ãƒ©3.png");
+	TextureData::Character4 = LoadGraph("res/ã‚­ãƒ£ãƒ©4.png");
 
 	TextureData::Player1 = LoadGraph("res/1P.png");
 	TextureData::Player2 = LoadGraph("res/2P.png");
 	TextureData::Player3 = LoadGraph("res/3P.png");
 	TextureData::Player4 = LoadGraph("res/4P.png");
 
-	TextureData::CharacterFlame = LoadGraph("res/ƒvƒŒƒCƒ„[˜g.png");
-	TextureData::Skill = LoadGraph("res/ƒXƒLƒ‹.png");
-	TextureData::Icon = LoadGraph("res/ƒAƒCƒRƒ“.png");
-	TextureData::Cursor = LoadGraph("res/ƒLƒƒƒ‰‘IƒJ[ƒ\ƒ‹.png");
+	TextureData::CharacterFlame = LoadGraph("res/ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æž .png");
+	TextureData::Skill = LoadGraph("res/ã‚¹ã‚­ãƒ«.png");
+	TextureData::Icon = LoadGraph("res/ã‚¢ã‚¤ã‚³ãƒ³.png");
+	TextureData::Cursor = LoadGraph("res/ã‚­ãƒ£ãƒ©é¸ã‚«ãƒ¼ã‚½ãƒ«.png");
 }
 SelectCharacterScene::~SelectCharacterScene()
 {
@@ -70,12 +70,12 @@ void SelectCharacterScene::Draw()
 	DrawGraph(320, 568, TextureData::Player3, true);
 	DrawGraph(1160, 568, TextureData::Player4, true);
 
-		//‰æ–Ê¶ã‚ÉƒfƒoƒbƒO—p‚Ì•¶Žš‚ð•‚Å•\Ž¦‚·‚é
+		//ç”»é¢å·¦ä¸Šã«ãƒ‡ãƒãƒƒã‚°ç”¨ã®æ–‡å­—ã‚’é»’ã§è¡¨ç¤ºã™ã‚‹
 	DrawString(20, 20, "SelectCharacterScene", GetColor(0, 0, 0));
 }
 
 bool SelectCharacterScene::IsEnd() const
 {
-	// @@Dummy ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Dummy é·ç§»ç¢ºèªç”¨ã®ä»®å‡¦ç†
 	return (m_Step >= 120);
 }

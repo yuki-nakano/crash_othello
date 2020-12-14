@@ -1,34 +1,34 @@
-#ifndef FADE_H
+ï»¿#ifndef FADE_H
 #define FADE_H
 
 #include "common.h"
 
 
-//ƒtƒF[ƒhƒ^ƒCƒv
+//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒ—
 enum FadeType
 {
-	//ƒtƒF[ƒh‚ğs‚Á‚Ä‚¢‚È‚¢
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’è¡Œã£ã¦ã„ãªã„
 	kFadeNot,
-	//ƒtƒF[ƒhƒCƒ“
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³
 	kFadeIn,
-	//ƒtƒF[ƒhƒAƒEƒg
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆ
 	kFadeOut,
 };
 
-//ƒtƒF[ƒh‚Ìó‘Ô
+//ãƒ•ã‚§ãƒ¼ãƒ‰ã®çŠ¶æ…‹
 enum FadeStatus
 {
-	//ƒtƒF[ƒh‚ğs‚Á‚Ä‚¢‚È‚¢
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’è¡Œã£ã¦ã„ãªã„
 	kDonotFade,
-	//ƒtƒF[ƒh’†
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­
 	kDoingFade,
-	//ƒtƒF[ƒhƒCƒ“I—¹
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³çµ‚äº†
 	kFinishedFadeIn,
-	//ƒtƒF[ƒhƒAƒEƒgI—¹
+	//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆçµ‚äº†
 	kFinishedFadeOut,
 };
 
-//ƒtƒF[ƒh‘¬“x
+//ãƒ•ã‚§ãƒ¼ãƒ‰é€Ÿåº¦
 enum FadeSpeed
 {
 	//4.2s
@@ -42,29 +42,29 @@ enum FadeSpeed
 class Fade
 {
 public:
-	//ƒAƒ‹ƒtƒ@[’l‚Ì‰Šú‰»
+	//ã‚¢ãƒ«ãƒ•ã‚¡ãƒ¼å€¤ã®åˆæœŸåŒ–
 	void InitFade(FadeType fade_type);
 
 	/**
-	 * @brief ƒtƒF[ƒhƒ^ƒCƒv‚É‰‚¶‚ÄƒAƒ‹ƒtƒ@[’l‚Ì‘Œ¸‚ğs‚¤ŠÖ”
-	 * @param fade_type ƒtƒF[ƒhƒ^ƒCƒv
-	 * @param fade_speed ƒtƒF[ƒh‚Ì‘¬“x
-	 * @retval true ƒtƒF[ƒh’†‚à‚µ‚­‚ÍƒtƒF[ƒh‚ğs‚Á‚Ä‚¢‚È‚¢
-	 * @retval false ƒtƒF[ƒhI—¹
-	 * @note RunFadeŠÖ”“à‚ÅÀs
+	 * @brief ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒ—ã«å¿œã˜ã¦ã‚¢ãƒ«ãƒ•ã‚¡ãƒ¼å€¤ã®å¢—æ¸›ã‚’è¡Œã†é–¢æ•°
+	 * @param fade_type ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒ—
+	 * @param fade_speed ãƒ•ã‚§ãƒ¼ãƒ‰ã®é€Ÿåº¦
+	 * @retval true ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã‚‚ã—ãã¯ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’è¡Œã£ã¦ã„ãªã„
+	 * @retval false ãƒ•ã‚§ãƒ¼ãƒ‰çµ‚äº†
+	 * @note RunFadeé–¢æ•°å†…ã§å®Ÿè¡Œ
 	 */
 	bool MakeToFluctuateAlpha(FadeType fade_type, FadeSpeed fade_speed);
 
 	/**
-	 * @brief ƒtƒF[ƒhÀsŠÖ”
-	 * @param fade_type ƒtƒF[ƒhƒ^ƒCƒv
-	 * @param fade_speed ƒtƒF[ƒh‚Ì‘¬“x
-	 * @return FadeStatus ƒtƒF[ƒh‚Ìó‘Ô
+	 * @brief ãƒ•ã‚§ãƒ¼ãƒ‰å®Ÿè¡Œé–¢æ•°
+	 * @param fade_type ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒ—
+	 * @param fade_speed ãƒ•ã‚§ãƒ¼ãƒ‰ã®é€Ÿåº¦
+	 * @return FadeStatus ãƒ•ã‚§ãƒ¼ãƒ‰ã®çŠ¶æ…‹
 	 */
 	FadeStatus RunFade(FadeType fade_type, FadeSpeed fade_speed);
 
 	/**
-	 * @brief ƒtƒF[ƒh—p‹éŒ`•`‰æŠÖ”
+	 * @brief ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨çŸ©å½¢æç”»é–¢æ•°
 	 */
 	void Draw();
 
@@ -74,27 +74,27 @@ private:
 };
 
 /**
-* @brief ƒV[ƒ“‚Ìó‘Ô
+* @brief ã‚·ãƒ¼ãƒ³ã®çŠ¶æ…‹
 */
 enum Phase
 {
-	//! ƒ^ƒCƒgƒ‹ƒV[ƒ“
+	//! ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³
 	kTitle,
-	//! ƒIƒvƒVƒ‡ƒ“ƒV[ƒ“
+	//! ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚·ãƒ¼ãƒ³
 	kOption,
-	//! à–¾ƒV[ƒ“
+	//! èª¬æ˜ã‚·ãƒ¼ãƒ³
 	kDescription,
-	//!	ƒXƒe[ƒW‘I‘ğƒV[ƒ“
+	//!	ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠã‚·ãƒ¼ãƒ³
 	kSelectStage,
-	//! ƒvƒŒƒCƒV[ƒ“
+	//! ãƒ—ãƒ¬ã‚¤ã‚·ãƒ¼ãƒ³
 	kPlay,
-	//! ƒXƒLƒ‹Šm”FƒV[ƒ“
+	//! ã‚¹ã‚­ãƒ«ç¢ºèªã‚·ãƒ¼ãƒ³
 	kCheckSkill,
-	//! ƒŠƒUƒ‹ƒgƒV[ƒ“
+	//! ãƒªã‚¶ãƒ«ãƒˆã‚·ãƒ¼ãƒ³
 	kResult,
-	//! Ÿ”s
+	//! å‹æ•—
 	kOutcome,
-	//! ƒ^ƒCƒgƒ‹‚É–ß‚é
+	//! ã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹
 	kBacktoTitle,
 };
 

@@ -1,4 +1,4 @@
-#ifndef DRAWTEXTURE
+﻿#ifndef DRAWTEXTURE
 #define DRAWTEXTURE
 
 class TextureData

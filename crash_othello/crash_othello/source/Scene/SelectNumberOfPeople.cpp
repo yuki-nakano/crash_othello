@@ -1,8 +1,8 @@
-#include "../common.h"
+ï»¿#include "../common.h"
 
 SelectNumberOfPeopleScene::SelectNumberOfPeopleScene()
 {
-	TextureData::BackGround_BLUE = LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_Â.jpg");
+	TextureData::BackGround_BLUE = LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é’.jpg");
 }
 SelectNumberOfPeopleScene::~SelectNumberOfPeopleScene()
 {
@@ -29,12 +29,12 @@ void SelectNumberOfPeopleScene::Draw()
 	DrawBox(275, 120, 630, 640, GetColor(0, 0, 0), false);
 	DrawBox(650, 120, 1005, 640, GetColor(0, 0, 0), false);
 
-		//‰æ–Ê¶ã‚ÉƒfƒoƒbƒO—p‚Ì•¶Žš‚ð•‚Å•\Ž¦‚·‚é
+		//ç”»é¢å·¦ä¸Šã«ãƒ‡ãƒãƒƒã‚°ç”¨ã®æ–‡å­—ã‚’é»’ã§è¡¨ç¤ºã™ã‚‹
 	DrawString(20, 20, "NumberOfPeople", GetColor(0, 0, 0));
 }
 
 bool SelectNumberOfPeopleScene::IsEnd() const
 {
-	// @@Dummy ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Dummy é·ç§»ç¢ºèªç”¨ã®ä»®å‡¦ç†
 	return (m_Step >= 120);
 }

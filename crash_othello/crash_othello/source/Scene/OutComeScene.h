@@ -1,4 +1,4 @@
-#ifndef OUTCOMESCENE_H
+ï»¿#ifndef OUTCOMESCENE_H
 #define OUTCOMESCENE_H
 
 #include "../common.h"
@@ -12,7 +12,7 @@ public:
 	void Exec();
 	void Draw();
 
-	virtual bool IsEnd() const; //ƒV[ƒ“‚ªI—¹‚µ‚½‚©‚Ç‚¤‚©‚ð•Ô‚·
+	virtual bool IsEnd() const; //ã‚·ãƒ¼ãƒ³ãŒçµ‚äº†ã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™
 };
 
 #endif // !OUTCOMESCENE_H

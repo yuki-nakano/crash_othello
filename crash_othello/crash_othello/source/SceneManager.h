@@ -1,4 +1,4 @@
-#ifndef SCENEMANAGER_H
+ï»¿#ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
 #include "Definition.h"
@@ -9,19 +9,19 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	void Exec();	//ƒV[ƒ“‚ÌÀs
-	void Draw();	//ƒV[ƒ“‚ÌÀs
+	void Exec();	//ã‚·ãƒ¼ãƒ³ã®å®Ÿè¡Œ
+	void Draw();	//ã‚·ãƒ¼ãƒ³ã®å®Ÿè¡Œ
 
-	//Ÿ‚ÌƒV[ƒ“‚ğİ’è‚·‚éŠÖ”‚ğstaticŠÖ”‚É‚·‚é‚±‚Æ‚Å
-	//À‘Ì‚ª‚Ç‚±‚É‚ ‚Á‚Ä‚à‚æ‚¢ó‘Ô‚ğì‚é
-	static void SetNextScene(SceneID next_);	//Ÿ‚ÌƒV[ƒ“İ’è
-
-private:
-	class SceneBase* create_NextScene();		//Ÿ‚ÌƒV[ƒ“‚ğì¬
+	//æ¬¡ã®ã‚·ãƒ¼ãƒ³ã‚’è¨­å®šã™ã‚‹é–¢æ•°ã‚’staticé–¢æ•°ã«ã™ã‚‹ã“ã¨ã§
+	//å®Ÿä½“ãŒã©ã“ã«ã‚ã£ã¦ã‚‚ã‚ˆã„çŠ¶æ…‹ã‚’ä½œã‚‹
+	static void SetNextScene(SceneID next_);	//æ¬¡ã®ã‚·ãƒ¼ãƒ³è¨­å®š
 
 private:
-	class SceneBase* m_pScene;				//Às’†‚ÌƒV[ƒ“
-	static SceneID		m_NextSceneID;			//Ÿ‚Éì‚éƒV[ƒ“‚ÌID
+	class SceneBase* create_NextScene();		//æ¬¡ã®ã‚·ãƒ¼ãƒ³ã‚’ä½œæˆ
+
+private:
+	class SceneBase* m_pScene;				//å®Ÿè¡Œä¸­ã®ã‚·ãƒ¼ãƒ³
+	static SceneID		m_NextSceneID;			//æ¬¡ã«ä½œã‚‹ã‚·ãƒ¼ãƒ³ã®ID
 };
 
 #endif // !SCENEMANAGER_H

@@ -1,8 +1,8 @@
-#include "../common.h"
+ï»¿#include "../common.h"
 
 DescriptionScene::DescriptionScene()
 {
-	TextureData::BackGround_BLUE = LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_Â.jpg");
+	TextureData::BackGround_BLUE = LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é’.jpg");
 }
 DescriptionScene::~DescriptionScene()
 {
@@ -39,12 +39,12 @@ void DescriptionScene::Draw()
 
 	DrawBox(999, 272, 1280, 770, GetColor(0, 0, 0), false);
 
-		//‰æ–Ê¶ã‚ÉƒfƒoƒbƒO—p‚Ì•¶Žš‚ð•‚Å•\Ž¦‚·‚é
+		//ç”»é¢å·¦ä¸Šã«ãƒ‡ãƒãƒƒã‚°ç”¨ã®æ–‡å­—ã‚’é»’ã§è¡¨ç¤ºã™ã‚‹
 	DrawString(20, 20, "DescriptionScene", GetColor(0, 0, 0));
 }
 
 bool DescriptionScene::IsEnd() const
 {
-	// @@Dummy ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Dummy é·ç§»ç¢ºèªç”¨ã®ä»®å‡¦ç†
 	return (m_Step >= 120);
 }

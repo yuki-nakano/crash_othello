@@ -1,4 +1,4 @@
-#include "common.h"
+﻿#include "common.h"
 
 int SoundData::A;
 int SoundData::B;

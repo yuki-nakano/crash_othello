@@ -1,4 +1,4 @@
-#include "./common.h"
+ï»¿#include "./common.h"
 
 int TextureData::BackGround_BLUE;
 int TextureData::BackGround_YELLOW;
@@ -22,27 +22,27 @@ int TextureData::Cursor;
 
 TextureData::TextureData()
 {
-	//‰æ‘œ‚Ì“Ç‚İ‚İ
+	//ç”»åƒã®èª­ã¿è¾¼ã¿
 
-	/*TextureData::BackGround_BLUE		= LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_Â.jpg");
-	TextureData::BackGround_YELLOW		= LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_‰©.jpg");
+	/*TextureData::BackGround_BLUE		= LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é’.jpg");
+	TextureData::BackGround_YELLOW		= LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é»„.jpg");
 
-	TextureData::CharacterSelect		= LoadGraph("res/ƒLƒƒƒ‰‘I‘ğ.png");
+	TextureData::CharacterSelect		= LoadGraph("res/ã‚­ãƒ£ãƒ©é¸æŠ.png");
 
-	TextureData::Character1				= LoadGraph("res/ƒLƒƒƒ‰1.png");
-	TextureData::Character2				= LoadGraph("res/ƒLƒƒƒ‰2.png");
-	TextureData::Character3				= LoadGraph("res/ƒLƒƒƒ‰3.png");
-	TextureData::Character4				= LoadGraph("res/ƒLƒƒƒ‰4.png");
+	TextureData::Character1				= LoadGraph("res/ã‚­ãƒ£ãƒ©1.png");
+	TextureData::Character2				= LoadGraph("res/ã‚­ãƒ£ãƒ©2.png");
+	TextureData::Character3				= LoadGraph("res/ã‚­ãƒ£ãƒ©3.png");
+	TextureData::Character4				= LoadGraph("res/ã‚­ãƒ£ãƒ©4.png");
 
 	TextureData::Player1				= LoadGraph("res/1P.png");
 	TextureData::Player2				= LoadGraph("res/2P.png");
 	TextureData::Player3				= LoadGraph("res/3P.png");
 	TextureData::Player4				= LoadGraph("res/4P.png");
 
-	TextureData::CharacterFlame			= LoadGraph("res/ƒvƒŒƒCƒ„[˜g.png");
-	TextureData::Skill					= LoadGraph("res/ƒXƒLƒ‹.png")
-	TextureData::Icon = LoadGraph("res/ƒAƒCƒRƒ“.png");
-	TextureData::Cursor = LoadGraph("res/ƒLƒƒƒ‰‘IƒJ[ƒ\ƒ‹.png");*/
+	TextureData::CharacterFlame			= LoadGraph("res/ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æ .png");
+	TextureData::Skill					= LoadGraph("res/ã‚¹ã‚­ãƒ«.png")
+	TextureData::Icon = LoadGraph("res/ã‚¢ã‚¤ã‚³ãƒ³.png");
+	TextureData::Cursor = LoadGraph("res/ã‚­ãƒ£ãƒ©é¸ã‚«ãƒ¼ã‚½ãƒ«.png");*/
 }
 
 TextureData::~TextureData()

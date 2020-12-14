@@ -1,4 +1,4 @@
-#include "common.h"
+﻿#include "common.h"
 
 
 void Fade::InitFade(FadeType fade_type)
