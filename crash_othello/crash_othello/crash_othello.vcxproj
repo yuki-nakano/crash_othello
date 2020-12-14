@@ -22,6 +22,8 @@
     <ClCompile Include="source\Input.cpp" />
     <ClCompile Include="source\DrawTexture.cpp" />
     <ClCompile Include="source\fade.cpp" />
+    <ClCompile Include="source\Collision.cpp" />
+    <ClCompile Include="source\Piece.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\othello.cpp" />
     <ClCompile Include="source\SceneManager.cpp" />
@@ -40,6 +42,9 @@
     <ClCompile Include="source\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Collision.h" />
+    <ClInclude Include="source\Definition.h" />
+    <ClInclude Include="source\Piece.h" />
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\Definition.h" />
     <ClInclude Include="source\Input.h" />
@@ -62,6 +67,7 @@
     <ClInclude Include="source\Scene\SelectStageScene.h" />
     <ClInclude Include="source\Scene\TitleScene.h" />
     <ClInclude Include="source\SoundManager.h" />
+    <ClInclude Include="source\Status.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

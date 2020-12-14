@@ -68,10 +68,10 @@ int WINAPI WinMain(
 
 void  GameProcessing()
 {
-	
+
 }
 
 void DrawProcessing()
 {
-	
+
 }
