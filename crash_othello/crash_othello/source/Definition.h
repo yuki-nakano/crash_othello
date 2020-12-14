@@ -1,34 +1,34 @@
-#ifndef DEFINITION_H
+ï»¿#ifndef DEFINITION_H
 #define DEFINITION_H
 
 enum SceneID
 {
-	//! ƒ^ƒCƒgƒ‹ƒV[ƒ“
+	//! ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³
 	SceneID_Title,
-	//! ƒIƒvƒVƒ‡ƒ“ƒV[ƒ“
+	//! ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚·ãƒ¼ãƒ³
 	SceneID_Option,
-	//! à–¾ƒV[ƒ“
+	//! èª¬æ˜ã‚·ãƒ¼ãƒ³
 	SceneID_Description,
-	//! l”‘I‘ğƒV[ƒ“
+	//! äººæ•°é¸æŠã‚·ãƒ¼ãƒ³
 	SceneID_SelectNumberOfPeople,
-	//! ƒLƒƒƒ‰ƒNƒ^[‘I‘ğƒV[ƒ“
+	//! ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼é¸æŠã‚·ãƒ¼ãƒ³
 	SceneID_SelectCharacter,
-	//!	ƒXƒe[ƒW‘I‘ğƒV[ƒ“
+	//!	ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠã‚·ãƒ¼ãƒ³
 	SceneID_SelectStage,
-	//! ƒvƒŒƒCƒV[ƒ“
+	//! ãƒ—ãƒ¬ã‚¤ã‚·ãƒ¼ãƒ³
 	SceneID_Play,
-	//! ƒXƒLƒ‹Šm”FƒV[ƒ“
+	//! ã‚¹ã‚­ãƒ«ç¢ºèªã‚·ãƒ¼ãƒ³
 	SceneID_CheckSkill,
-	//! ƒŠƒUƒ‹ƒgƒV[ƒ“
+	//! ãƒªã‚¶ãƒ«ãƒˆã‚·ãƒ¼ãƒ³
 	SceneID_Result,
-	//! Ÿ”s
+	//! å‹æ•—
 	SceneID_Outcome,
-	//! ƒ^ƒCƒgƒ‹‚É–ß‚é
+	//! ã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹
 	SceneID_BacktoTitle,
 	
 
 	SceneID_Max,
-	SceneID_Invalid,	//–³Œø’l
+	SceneID_Invalid,	//ç„¡åŠ¹å€¤
 };
 
 #endif // !DEFINITION_H

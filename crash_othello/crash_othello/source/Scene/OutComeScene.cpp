@@ -1,4 +1,4 @@
-#include "../common.h"
+ï»¿#include "../common.h"
 
 OutComeScene::OutComeScene()
 {
@@ -19,12 +19,12 @@ void OutComeScene::Exec()
 
 void OutComeScene::Draw()
 {
-	//‰æ–Ê¶ã‚ÉƒfƒoƒbƒO—p‚Ì•¶Žš‚ð•‚Å•\Ž¦‚·‚é
+	//ç”»é¢å·¦ä¸Šã«ãƒ‡ãƒãƒƒã‚°ç”¨ã®æ–‡å­—ã‚’é»’ã§è¡¨ç¤ºã™ã‚‹
 	DrawString(20, 20, "OutComeScene", GetColor(0, 0, 0));
 }
 
 bool OutComeScene::IsEnd() const
 {
-	// @@Dummy ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Dummy é·ç§»ç¢ºèªç”¨ã®ä»®å‡¦ç†
 	return (m_Step >= 120);
 }

@@ -1,12 +1,12 @@
-#include "./common.h"
+ï»¿#include "./common.h"
 
-//static‚Èƒƒ“ƒo•Ï”‚ğ‰Šú‰»
+//staticãªãƒ¡ãƒ³ãƒå¤‰æ•°ã‚’åˆæœŸåŒ–
 SceneID SceneManager::m_NextSceneID = SceneID_Invalid;
 
 SceneManager::SceneManager()
 	:m_pScene(nullptr)
 {
-	//Å‰‚ÉÀs‚·‚éƒV[ƒ“‚ğì¬‚·‚é
+	//æœ€åˆã«å®Ÿè¡Œã™ã‚‹ã‚·ãƒ¼ãƒ³ã‚’ä½œæˆã™ã‚‹
 	SetNextScene(SceneID_Title);
 	m_pScene = create_NextScene();
 }
@@ -52,8 +52,8 @@ SceneBase* SceneManager::create_NextScene()
 	SceneBase* next = nullptr;
 	switch (m_NextSceneID)
 	{
-		//‚±‚±‚É‚»‚ê‚¼‚êSceneBase‚ğŒp³‚µ‚½”h¶ƒNƒ‰ƒX‚ğnew‚·‚éˆ—‚ğ‘‚­
-		//ƒV[ƒ“‚Ì‘Œ¸‚ª‚ ‚Á‚Ä‚àƒwƒbƒ_‚ÌƒCƒ“ƒNƒ‹[ƒh‚Æ‚±‚±ˆÈŠO‚É•ÏX‚Í•K—v‚È‚¢
+		//ã“ã“ã«ãã‚Œãã‚ŒSceneBaseã‚’ç¶™æ‰¿ã—ãŸæ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã‚’newã™ã‚‹å‡¦ç†ã‚’æ›¸ã
+		//ã‚·ãƒ¼ãƒ³ã®å¢—æ¸›ãŒã‚ã£ã¦ã‚‚ãƒ˜ãƒƒãƒ€ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã¨ã“ã“ä»¥å¤–ã«å¤‰æ›´ã¯å¿…è¦ãªã„
 	case SceneID_Title:
 		next = new TitleScene();
 		break;

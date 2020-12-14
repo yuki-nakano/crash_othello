@@ -1,7 +1,7 @@
-#ifndef SCENEBASE_H
+ï»¿#ifndef SCENEBASE_H
 #define SCENEBASE_H
 
-//ƒV[ƒ“Šî’êƒNƒ‰ƒX
+//ã‚·ãƒ¼ãƒ³åŸºåº•ã‚¯ãƒ©ã‚¹
 class SceneBase
 {
 public:
@@ -9,12 +9,12 @@ public:
 	SceneBase();
 	virtual ~SceneBase();
 
-	//ˆ—“à—e‚Í”h¶ƒNƒ‰ƒX–ˆ‚Éˆá‚¤‚Ì‚ÅA
-	//ƒˆ‰¼‘zŠÖ”‚Æ‚µ‚ÄéŒ¾‚µ‚Ä‚¨‚­
-	virtual void Exec() = 0;	//ˆ—‚ğs‚¤
-	virtual void Draw() = 0;	//•`‰æ‚ğs‚¤
+	//å‡¦ç†å†…å®¹ã¯æ´¾ç”Ÿã‚¯ãƒ©ã‚¹æ¯ã«é•ã†ã®ã§ã€
+	//ç´”ç²‹ä»®æƒ³é–¢æ•°ã¨ã—ã¦å®£è¨€ã—ã¦ãŠã
+	virtual void Exec() = 0;	//å‡¦ç†ã‚’è¡Œã†
+	virtual void Draw() = 0;	//æç”»ã‚’è¡Œã†
 
-	virtual bool IsEnd() const = 0; //ƒV[ƒ“‚ªI—¹‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·
+	virtual bool IsEnd() const = 0; //ã‚·ãƒ¼ãƒ³ãŒçµ‚äº†ã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™
 };
 
 #endif // !SCENEBASE_H

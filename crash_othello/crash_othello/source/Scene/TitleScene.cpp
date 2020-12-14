@@ -1,8 +1,8 @@
-#include "../common.h"
+ï»¿#include "../common.h"
 
 TitleScene::TitleScene()
 {
-	TextureData::BackGround_BLUE = LoadGraph("res/ƒQ[ƒ€‰æ–Ê”wŒi_Â.jpg");
+	TextureData::BackGround_BLUE = LoadGraph("res/ã‚²ãƒ¼ãƒ ç”»é¢èƒŒæ™¯_é’.jpg");
 }
 TitleScene::~TitleScene()
 {
@@ -24,12 +24,12 @@ void TitleScene::Draw()
 	DrawBox(190, 0, 1090, 400, GetColor(0, 0, 0), false);
 	DrawBox(250, 500, 580, 625, GetColor(0, 0, 0), false);
 	DrawBox(700, 500, 1030, 625, GetColor(0, 0, 0), false);
-		//‰æ–Ê¶ã‚ÉƒfƒoƒbƒO—p‚Ì•¶Žš‚ð•‚Å•\Ž¦‚·‚é
+		//ç”»é¢å·¦ä¸Šã«ãƒ‡ãƒãƒƒã‚°ç”¨ã®æ–‡å­—ã‚’é»’ã§è¡¨ç¤ºã™ã‚‹
 	DrawString(20, 20, "TitleScene", GetColor(0, 0, 0));
 }
 
 bool TitleScene::IsEnd() const
 {
-	// @@Dummy ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Dummy é·ç§»ç¢ºèªç”¨ã®ä»®å‡¦ç†
 	return (m_Step >= 120);
 }
