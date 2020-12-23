@@ -31,8 +31,9 @@ int WINAPI WinMain(
 	while (true)
 	{
 		// メッセージループに代わる処理をする
-		if (ProcessMessage() == -1 ||
-			CheckHitKey(KEY_INPUT_ESCAPE) == 1)
+		if (ProcessMessage() == -1 || 
+			(IsKeyHeld(KEY_INPUT_SPACE) && 
+			IsKeyPushed(KEY_INPUT_ESCAPE) == 1))
 		{
 			break;        // エラーが起きたらループを抜ける
 		}

@@ -2,18 +2,24 @@
 
 DescriptionScene::DescriptionScene()
 {
-	TextureData::BackGround_BLUE = LoadGraph("res/ゲーム画面背景_青.jpg");
+	TextureData::BackGround_BLUE = LoadGraph("res/setumeihaikei.png");
+	TextureData::Description = LoadGraph("res/ルール説明.png");
 }
+
 DescriptionScene::~DescriptionScene()
 {
 
 }
+
 void DescriptionScene::Exec()
 {
-	m_Step++;
-	if (m_Step >= 120)
+	if (IsKeyPushed(KEY_INPUT_RETURN))
 	{
 		SceneManager::SetNextScene(SceneID_SelectNumberOfPeople);
+	}
+	else if (IsKeyPushed(KEY_INPUT_ESCAPE))
+	{
+		SceneManager::SetNextScene(SceneID_Title);
 	}
 }
 
@@ -24,7 +30,7 @@ void DescriptionScene::Draw()
 	DrawBox(20, 20, 205, 70, GetColor(0, 0, 0), false);
 	DrawBox(1104, 20, 1260, 85, GetColor(0, 0, 0), false);
 
-	DrawBox(445, 0, 835, 100, GetColor(0, 0, 0), false);
+	DrawGraph(445, 0, TextureData::Description, true);
 
 	DrawBox(125, 124, 969, 544, GetColor(0, 0, 0), false);
 
@@ -45,6 +51,9 @@ void DescriptionScene::Draw()
 
 bool DescriptionScene::IsEnd() const
 {
-	// @@Dummy 遷移確認用の仮処理
-	return (m_Step >= 120);
+	if (IsKeyPushed(KEY_INPUT_RETURN) || IsKeyPushed(KEY_INPUT_ESCAPE))
+	{
+		TextureData::DeleteTex();
+		return true;
+	}
 }

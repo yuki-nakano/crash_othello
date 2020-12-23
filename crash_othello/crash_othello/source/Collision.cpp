@@ -40,7 +40,7 @@ void Collision::ReflectPiece(Piece piece[], int num)
 				float distanceX = piece[num].pos_x - piece[i].pos_x;
 				float distanceY = piece[num].pos_y - piece[i].pos_y;
 
-				float tmpTheta = atan2f(distanceY, distanceX) * 180 / M_PI;
+				double tmpTheta = atan2f(distanceY, distanceX) * 180 / M_PI;
 
 				if (tmpTheta < 0)
 				{

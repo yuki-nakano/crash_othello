@@ -13,6 +13,7 @@ public:
 	void Draw();
 
 	virtual bool IsEnd() const; //シーンが終了したかどうかを返す
+
 };
 
 #endif // !TITLESCENE_H
