@@ -84,12 +84,6 @@
     <ClInclude Include="source\Input.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="source\Definition.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Status.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="source\othello.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
@@ -154,6 +148,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="source\Status.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Definition.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

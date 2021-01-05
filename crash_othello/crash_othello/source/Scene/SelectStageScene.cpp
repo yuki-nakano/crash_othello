@@ -28,7 +28,7 @@ void SelectStageScene::Draw()
 	DrawBox(440, 0, 840, 100, GetColor(0, 0, 0), false);
 
 	DrawBox(70, 120, 425, 640, GetColor(0, 0, 0), false);
-	DrawBox(462.5, 120, 818.5, 640, GetColor(0, 0, 0), false);
+	DrawBox(462, 120, 819, 640, GetColor(0, 0, 0), false);
 	DrawBox(855, 120, 1210, 640, GetColor(0, 0, 0), false);
 
 		//画面左上にデバッグ用の文字を黒で表示する

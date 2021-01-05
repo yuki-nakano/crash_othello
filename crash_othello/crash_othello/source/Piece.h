@@ -8,15 +8,18 @@ class Piece
 public:
 	void DecomposeVec();
 	void CalculateV();
-
+	void SetWall(int stage_num);
 	
-
 	void SetV(float v);
 	void SetTheta(float theta);
-	float GetTheta() const { return Theta; };
+	double GetTheta() const { return Theta; };
 	float GetV() const { return V; };
-	float GetV_X() const { return V_X; };
-	float GetV_Y() const { return V_Y; };
+	double GetV_X() const { return V_X; };
+	double GetV_Y() const { return V_Y; };
+	float GetUp() const { return kUp; };
+	float GetDown() const { return kDown; };
+	float GetRight() const { return kRight; };
+	float GetLeft() const { return kLeft; };
 
 private:
 	void Decelerate();
@@ -32,21 +35,20 @@ public:
 	Color color = kBlank;
 
 	float kRadius = 22.5f;
-	float e = 0.9;
+	float e = 0.9f;
 
 private:
 	float V = 0.0f;
-	float t;
 	float Theta = 0.0f;
-	float V_X = 0.0f;
-	float V_Y = 0.0f;
+	double V_X = 0.0f;
+	double V_Y = 0.0f;
 
-	float g = 9.8;
-	float M = 0.3;
-	float kUp = 0;
-	float kDown = 720;
-	float kRight = 1280;
-	float kLeft = 0;
+	float g = 9.8f;
+	float M = 0.3f;
+	float kUp = 0.0f;
+	float kDown = 500.0f;
+	float kRight = 500.0f;
+	float kLeft = 0.0f;
 };
 
 #endif // !CALCULATION_H

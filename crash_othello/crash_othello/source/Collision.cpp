@@ -19,7 +19,7 @@ bool Collision::collid(Piece move_piece, Piece piece)
 
 void Collision::ReflectPiece(Piece piece[], int num)
 {
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 64; i++)
 	{
 		if (i == num)
 		{
@@ -31,40 +31,45 @@ void Collision::ReflectPiece(Piece piece[], int num)
 			continue;
 		}
 
-		if (collid(piece[num], piece[i]) == true)
+		if (Collision::collid(piece[num], piece[i]) == true)
 		{
 			if (piece[num].GetV() > piece[i].GetV())
 			{
 				piece[i].isHit = true;
 
 				float distanceX = piece[num].pos_x - piece[i].pos_x;
-				float distanceY = piece[num].pos_y - piece[i].pos_y;
-
-				float tmpTheta = atan2f(distanceY, distanceX) * 180 / M_PI;
-
-				if (tmpTheta < 0)
-				{
-					tmpTheta += 360.0f;
-				}
+				float distanceY = (piece[num].pos_y - piece[i].pos_y) * -1;
 
 				float distanceCircle = sqrtf(powf(distanceX, 2.0f) + powf(distanceY, 2.0f));
 
-				piece[i].SetTheta(fmodf((tmpTheta + 180.0f), 360.0f));
+				piece[num].pos_x -= cosf(piece[num].GetTheta() * M_PI / 180) * (piece[num].kRadius + piece[i].kRadius - distanceCircle + 0.1f);
+				piece[num].pos_y += sinf(piece[num].GetTheta() * M_PI / 180) * (piece[num].kRadius + piece[i].kRadius - distanceCircle + 0.1f);
+
+				double atanTheta = atan2(distanceY, distanceX) * 180 / M_PI;
+
+				if (atanTheta < 0)
+				{
+ 					atanTheta += 360.0f;
+				}
+
+				int tmpTheta = (atanTheta + 180.0f > 360.0f ? atanTheta - 180.0f : atanTheta + 180.0f);
+				
+				piece[i].SetTheta(tmpTheta);
 
 				piece[i].SetV(piece[i].GetV() + (piece[num].GetV() * (1 - piece[num].e)));
 
-				piece[num].SetTheta(fmodf((tmpTheta * 2 - piece[num].GetTheta() + 360.0f), 360.0f));
+				piece[num].SetTheta(fmodf(360.0f - piece[num].GetTheta() + atanTheta * 2, 360.0f));
 
-				piece[num].pos_x += cosf(piece[num].GetTheta() * M_PI / 180) * (piece[num].kRadius + piece[i].kRadius - distanceCircle + 0.01f);
-				piece[num].pos_y -= sinf(piece[num].GetTheta() * M_PI / 180) * (piece[num].kRadius + piece[i].kRadius - distanceCircle + 0.01f);
-			}
+				//piece[num].SetTheta(tmpTheta * 2 - piece[num].GetTheta());
+
+}
 		}
 	}
 }
 
 void Collision::ChengeIsMoving(Piece piece[])
 {
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 64; i++)
 	{
 		if (piece[i].isHit)
 		{

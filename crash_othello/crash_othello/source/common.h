@@ -11,7 +11,6 @@
 #include "Status.h"
 #include "othello.h"
 #include "fade.h"
-#include "main.h"
 
 #include "SoundManager.h"
 #include "SceneManager.h"
