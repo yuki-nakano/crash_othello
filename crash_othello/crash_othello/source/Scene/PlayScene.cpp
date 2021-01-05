@@ -579,6 +579,7 @@ void PlayScene::Exec()
 				phase = kTurnOverPhase;
 				if (Hanabi)
 				{
+					HanabiCount = 0;
 					phase = kSkillHanabi;
 				}
 				if (Inbijiburu)
@@ -771,7 +772,7 @@ void PlayScene::Exec()
 		break;
 	case kFinishPhase:
 
-		turnNumber++;
+		
 
 		switch (turn)
 		{
@@ -804,6 +805,8 @@ void PlayScene::Exec()
 			phase = kGameFinish;
 		}
 
+		turnNumber++;
+		
 		break;
 	case kGameFinish:
 
