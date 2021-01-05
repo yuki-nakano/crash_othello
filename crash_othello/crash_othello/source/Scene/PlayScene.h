@@ -51,6 +51,19 @@ private:
 	int pos_Y_kami;
 
 	bool GameFinish;
+
+	int result[5];
+	int countPiece[5];
+	int resultColor[64];
+	int resultCount;
+	int resultFlameCount;
+
+	int order[4];
+	int orderNumber[4];
+	int MaxOrder;
+
+	bool FinishedGame = false;
+
 };
 
 #endif // !PALYSCENE_H

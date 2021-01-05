@@ -79,6 +79,11 @@ enum
 	kBackGroundPurple,
 	kBackGroundBlue,
 
+	kBackGroundResult,
+	kResultTitle,
+
+	kReturnTitle,
+
 	kTextureMax
 };
 //カットイン
@@ -92,59 +97,18 @@ enum
 //赤数字
 enum
 {
-	kRedNumber_0,	
-	kRedNumber_1,
-	kRedNumber_2,
-	kRedNumber_3,
-	kRedNumber_4,
-	kRedNumber_5,
-	kRedNumber_6,
-	kRedNumber_7,
-	kRedNumber_8,
-	kRedNumber_9,
+	kNumber_0,	
+	kNumber_1,
+	kNumber_2,
+	kNumber_3,
+	kNumber_4,
+	kNumber_5,
+	kNumber_6,
+	kNumber_7,
+	kNumber_8,
+	kNumber_9,
 };
-//青数字
-enum
-{
-	kBlueNumber_0,	
-	kBlueNumber_1,
-	kBlueNumber_2,
-	kBlueNumber_3,
-	kBlueNumber_4,
-	kBlueNumber_5,
-	kBlueNumber_6,
-	kBlueNumber_7,
-	kBlueNumber_8,
-	kBlueNumber_9,
-};
-//黒数字
-enum
-{
-	kBlackNumber_0,	
-	kBlackNumber_1,
-	kBlackNumber_2,
-	kBlackNumber_3,
-	kBlackNumber_4,
-	kBlackNumber_5,
-	kBlackNumber_6,
-	kBlackNumber_7,
-	kBlackNumber_8,
-	kBlackNumber_9,
-};
-//白数字
-enum
-{
-	kWhiteNumber_0,	
-	kWhiteNumber_1,
-	kWhiteNumber_2,
-	kWhiteNumber_3,
-	kWhiteNumber_4,
-	kWhiteNumber_5,
-	kWhiteNumber_6,
-	kWhiteNumber_7,
-	kWhiteNumber_8,
-	kWhiteNumber_9,
-};
+
 //スキル
 enum
 {
@@ -183,6 +147,13 @@ int TextureSkillCutIn[6];
 int TextureReflectEffect[3];
 int TexturePixel[4];
 int TextureIcon[6];
+int TextureResultNumberRed[10];
+int TextureResultNumberBlue[10];
+int TextureResultNumberBlack[10];
+int TextureResultNumberWhite[10];
+int TexturePlayerNumber[4];
+int TextureSheets[4];
+int TextureWin[4];
 
 
 PlayScene::PlayScene()
@@ -262,56 +233,62 @@ PlayScene::PlayScene()
 
 	Texture[kBackGroundYellow] = LoadGraph("res/GameScene/ゲーム画面背景_黄.jpg");
 	Texture[kBackGroundPurple] = LoadGraph("res/GameScene/ゲーム画面背景_紫.jpg");
-	Texture[kBackGroundBlue] = LoadGraph("res/GameScene/ゲーム画面背景_青.jpg");
+	Texture[kBackGroundBlue]   = LoadGraph("res/GameScene/ゲーム画面背景_青.jpg");
+
+	Texture[kBackGroundResult] = LoadGraph("res/GameScene/リザルト/オプション_集計_勝利画面背景.png");
+
+	Texture[kResultTitle] = LoadGraph("res/GameScene/リザルト/結果発表.png");
+
+	Texture[kReturnTitle] = LoadGraph("res/GameScene/リザルト/勝利画面_タイトルに戻る.png");
 
 	TextureCutIn[kCutIn_Red]   = LoadGraph("res/GameScene/ターンのカットイン1P.png");
 	TextureCutIn[kCutIn_Blue]  = LoadGraph("res/GameScene/ターンのカットイン2P.png");
 	TextureCutIn[kCutIn_Black] = LoadGraph("res/GameScene/ターンのカットイン3P.png");
 	TextureCutIn[kCutIn_White] = LoadGraph("res/GameScene/ターンのカットイン4P.png");
 
-	TextureNumberRed[kRedNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤0.png");
-	TextureNumberRed[kRedNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤1.png");
-	TextureNumberRed[kRedNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤2.png");
-	TextureNumberRed[kRedNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤3.png");
-	TextureNumberRed[kRedNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤4.png");
-	TextureNumberRed[kRedNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤5.png");
-	TextureNumberRed[kRedNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤6.png");
-	TextureNumberRed[kRedNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤7.png");
-	TextureNumberRed[kRedNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤8.png");
-	TextureNumberRed[kRedNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤9.png");
+	TextureNumberRed[kNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤0.png");
+	TextureNumberRed[kNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤1.png");
+	TextureNumberRed[kNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤2.png");
+	TextureNumberRed[kNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤3.png");
+	TextureNumberRed[kNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤4.png");
+	TextureNumberRed[kNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤5.png");
+	TextureNumberRed[kNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤6.png");
+	TextureNumberRed[kNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤7.png");
+	TextureNumberRed[kNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤8.png");
+	TextureNumberRed[kNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/赤9.png");
 
-	TextureNumberBlue[kBlueNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青0.png");
-	TextureNumberBlue[kBlueNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青1.png");
-	TextureNumberBlue[kBlueNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青2.png");
-	TextureNumberBlue[kBlueNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青3.png");
-	TextureNumberBlue[kBlueNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青4.png");
-	TextureNumberBlue[kBlueNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青5.png");
-	TextureNumberBlue[kBlueNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青6.png");
-	TextureNumberBlue[kBlueNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青7.png");
-	TextureNumberBlue[kBlueNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青8.png");
-	TextureNumberBlue[kBlueNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青9.png");
+	TextureNumberBlue[kNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青0.png");
+	TextureNumberBlue[kNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青1.png");
+	TextureNumberBlue[kNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青2.png");
+	TextureNumberBlue[kNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青3.png");
+	TextureNumberBlue[kNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青4.png");
+	TextureNumberBlue[kNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青5.png");
+	TextureNumberBlue[kNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青6.png");
+	TextureNumberBlue[kNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青7.png");
+	TextureNumberBlue[kNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青8.png");
+	TextureNumberBlue[kNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/青9.png");
 
-	TextureNumberBlack[kBlackNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒0.png");
-	TextureNumberBlack[kBlackNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒1.png");
-	TextureNumberBlack[kBlackNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒2.png");
-	TextureNumberBlack[kBlackNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒3.png");
-	TextureNumberBlack[kBlackNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒4.png");
-	TextureNumberBlack[kBlackNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒5.png");
-	TextureNumberBlack[kBlackNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒6.png");
-	TextureNumberBlack[kBlackNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒7.png");
-	TextureNumberBlack[kBlackNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒8.png");
-	TextureNumberBlack[kBlackNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒9.png");
+	TextureNumberBlack[kNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒0.png");
+	TextureNumberBlack[kNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒1.png");
+	TextureNumberBlack[kNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒2.png");
+	TextureNumberBlack[kNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒3.png");
+	TextureNumberBlack[kNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒4.png");
+	TextureNumberBlack[kNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒5.png");
+	TextureNumberBlack[kNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒6.png");
+	TextureNumberBlack[kNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒7.png");
+	TextureNumberBlack[kNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒8.png");
+	TextureNumberBlack[kNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/黒9.png");
 
-	TextureNumberWhite[kWhiteNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白0.png");
-	TextureNumberWhite[kWhiteNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白1.png");
-	TextureNumberWhite[kWhiteNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白2.png");
-	TextureNumberWhite[kWhiteNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白3.png");
-	TextureNumberWhite[kWhiteNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白4.png");
-	TextureNumberWhite[kWhiteNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白5.png");
-	TextureNumberWhite[kWhiteNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白6.png");
-	TextureNumberWhite[kWhiteNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白7.png");
-	TextureNumberWhite[kWhiteNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白8.png");
-	TextureNumberWhite[kWhiteNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白9.png");
+	TextureNumberWhite[kNumber_0] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白0.png");
+	TextureNumberWhite[kNumber_1] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白1.png");
+	TextureNumberWhite[kNumber_2] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白2.png");
+	TextureNumberWhite[kNumber_3] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白3.png");
+	TextureNumberWhite[kNumber_4] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白4.png");
+	TextureNumberWhite[kNumber_5] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白5.png");
+	TextureNumberWhite[kNumber_6] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白6.png");
+	TextureNumberWhite[kNumber_7] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白7.png");
+	TextureNumberWhite[kNumber_8] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白8.png");
+	TextureNumberWhite[kNumber_9] = LoadGraph("res/GameScene/残り〇枚_4色0~9/白9.png");
 
 	TextureSkillIcon[kHANABI]	  = LoadGraph("res/GameScene/スキルアイコン_花火.png");
 	TextureSkillIcon[kTIKARAKOSO] = LoadGraph("res/GameScene/スキルアイコン_力こそパワー.png");
@@ -343,6 +320,64 @@ PlayScene::PlayScene()
 	TextureIcon[kHEBII]		 = LoadGraph("res/GameScene/アイコン_ヘビーショット.png");
 	TextureIcon[kMAGUNETTO]  = LoadGraph("res/GameScene/アイコン_マグネット.png");
 
+	TextureResultNumberRed[kNumber_0] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤0.png");
+	TextureResultNumberRed[kNumber_1] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤1.png");
+	TextureResultNumberRed[kNumber_2] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤2.png");
+	TextureResultNumberRed[kNumber_3] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤3.png");
+	TextureResultNumberRed[kNumber_4] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤4.png");
+	TextureResultNumberRed[kNumber_5] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤5.png");
+	TextureResultNumberRed[kNumber_6] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤6.png");
+	TextureResultNumberRed[kNumber_7] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤7.png");
+	TextureResultNumberRed[kNumber_8] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤8.png");
+	TextureResultNumberRed[kNumber_9] = LoadGraph("res/GameScene/リザルト/集計画面数字/赤9.png");
+
+	TextureResultNumberBlue[kNumber_0] = LoadGraph("res/GameScene/リザルト/集計画面数字/青0.png");
+	TextureResultNumberBlue[kNumber_1] = LoadGraph("res/GameScene/リザルト/集計画面数字/青1.png");
+	TextureResultNumberBlue[kNumber_2] = LoadGraph("res/GameScene/リザルト/集計画面数字/青2.png");
+	TextureResultNumberBlue[kNumber_3] = LoadGraph("res/GameScene/リザルト/集計画面数字/青3.png");
+	TextureResultNumberBlue[kNumber_4] = LoadGraph("res/GameScene/リザルト/集計画面数字/青4.png");
+	TextureResultNumberBlue[kNumber_5] = LoadGraph("res/GameScene/リザルト/集計画面数字/青5.png");
+	TextureResultNumberBlue[kNumber_6] = LoadGraph("res/GameScene/リザルト/集計画面数字/青6.png");
+	TextureResultNumberBlue[kNumber_7] = LoadGraph("res/GameScene/リザルト/集計画面数字/青7.png");
+	TextureResultNumberBlue[kNumber_8] = LoadGraph("res/GameScene/リザルト/集計画面数字/青8.png");
+	TextureResultNumberBlue[kNumber_9] = LoadGraph("res/GameScene/リザルト/集計画面数字/青9.png");
+
+	TextureResultNumberBlack[kNumber_0] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒0.png");
+	TextureResultNumberBlack[kNumber_1] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒1.png");
+	TextureResultNumberBlack[kNumber_2] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒2.png");
+	TextureResultNumberBlack[kNumber_3] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒3.png");
+	TextureResultNumberBlack[kNumber_4] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒4.png");
+	TextureResultNumberBlack[kNumber_5] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒5.png");
+	TextureResultNumberBlack[kNumber_6] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒6.png");
+	TextureResultNumberBlack[kNumber_7] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒7.png");
+	TextureResultNumberBlack[kNumber_8] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒8.png");
+	TextureResultNumberBlack[kNumber_9] = LoadGraph("res/GameScene/リザルト/集計画面数字/黒9.png");
+
+	TextureResultNumberWhite[kNumber_0] = LoadGraph("res/GameScene/リザルト/集計画面数字/白0.png");
+	TextureResultNumberWhite[kNumber_1] = LoadGraph("res/GameScene/リザルト/集計画面数字/白1.png");
+	TextureResultNumberWhite[kNumber_2] = LoadGraph("res/GameScene/リザルト/集計画面数字/白2.png");
+	TextureResultNumberWhite[kNumber_3] = LoadGraph("res/GameScene/リザルト/集計画面数字/白3.png");
+	TextureResultNumberWhite[kNumber_4] = LoadGraph("res/GameScene/リザルト/集計画面数字/白4.png");
+	TextureResultNumberWhite[kNumber_5] = LoadGraph("res/GameScene/リザルト/集計画面数字/白5.png");
+	TextureResultNumberWhite[kNumber_6] = LoadGraph("res/GameScene/リザルト/集計画面数字/白6.png");
+	TextureResultNumberWhite[kNumber_7] = LoadGraph("res/GameScene/リザルト/集計画面数字/白7.png");
+	TextureResultNumberWhite[kNumber_8] = LoadGraph("res/GameScene/リザルト/集計画面数字/白8.png");
+	TextureResultNumberWhite[kNumber_9] = LoadGraph("res/GameScene/リザルト/集計画面数字/白9.png");
+
+	TexturePlayerNumber[0] = LoadGraph("res/GameScene/リザルト/集計画面_1p.png");
+	TexturePlayerNumber[1] = LoadGraph("res/GameScene/リザルト/集計画面_2p.png");
+	TexturePlayerNumber[2] = LoadGraph("res/GameScene/リザルト/集計画面_3p.png");
+	TexturePlayerNumber[3] = LoadGraph("res/GameScene/リザルト/集計画面_4p.png");
+
+	TextureSheets[0] = LoadGraph("res/GameScene/リザルト/集計画面_枚_1p.png");
+	TextureSheets[1] = LoadGraph("res/GameScene/リザルト/集計画面_枚_2p.png");
+	TextureSheets[2] = LoadGraph("res/GameScene/リザルト/集計画面_枚_3p.png");
+	TextureSheets[3] = LoadGraph("res/GameScene/リザルト/集計画面_枚_4p.png");
+
+	TextureWin[0] = LoadGraph("res/GameScene/リザルト/1Pの勝利.png");
+	TextureWin[1] = LoadGraph("res/GameScene/リザルト/2Pの勝利.png");
+	TextureWin[2] = LoadGraph("res/GameScene/リザルト/3Pの勝利.png");
+	TextureWin[3] = LoadGraph("res/GameScene/リザルト/4Pの勝利.png");
 
 }
 
@@ -353,6 +388,78 @@ PlayScene::~PlayScene()
 
 void PlayScene::Exec()
 {
+	//デバッグ用
+	if (IsKeyPushed(KEY_INPUT_R))
+	{
+		OwnPieceRed = 0;
+		OwnPieceBlue = 0;
+		OwnPieceBlack = 0;
+		OwnPieceWhite = 0;
+
+		for (int i = 0; i < 4; i++)
+		{
+			skillState[i] = kUsedSkill;
+		}
+
+		result[0] = 16;
+		result[1] = 13;
+		result[2] = 10;
+		result[3] = 20;
+		result[4] = 5;
+
+		for (int i = 0; i < 4; i++)
+		{
+			countPiece[i] = result[i];
+			order[i] = i;
+		}
+
+		int j = 0;
+
+		for (int i = 0; i < MaxPiece; i++)
+		{
+			result[j]--;
+
+			resultColor[i] = j;
+
+			if (result[j] == 0)
+			{
+				j++;
+			}
+		}
+
+		MaxOrder = 0;
+
+		resultCount = 0;
+		resultFlameCount = 0;
+
+		for (int i = 0; i < 4; i++)
+		{
+			orderNumber[i] = countPiece[i];
+			order[i] = i;
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = i + 1; j < 4; j++)
+			{
+				if (orderNumber[i] > orderNumber[j])
+				{
+					int tmp = order[i];
+					order[i] = order[j];
+					order[j] = tmp;
+
+					int tmp_2 = orderNumber[i];
+					orderNumber[i] = orderNumber[j];
+					orderNumber[j] = tmp_2;
+
+				}
+			}
+		}
+
+		phase = kResultPhase;
+	}
+
+
 	countFrame++;
 
 	switch (phase)
@@ -822,6 +929,101 @@ void PlayScene::Exec()
 		if (countFrame > 60)
 		{
 			phase = kResultPhase;
+
+			for (int i = 0; i < 4; i++)
+			{
+				result[i] = 0;
+				countPiece[i] = 0;
+			}
+
+			for (int i = 0; i < MaxPiece; i++)
+			{
+				switch (piece[i].color)
+				{
+				case kRed:
+					result[0]++;
+					countPiece[0]++;
+					break;
+				case kBlue:
+					result[1]++;
+					countPiece[1]++;
+					break;
+				case kBlack:
+					result[2]++;
+					countPiece[2]++;
+					break;
+				case kWhite:
+					result[3]++;
+					countPiece[3]++;
+					break;
+				case kBlank:
+					result[4]++;
+					countPiece[4]++;
+					break;
+				}
+			}
+
+			int j = 0;
+
+			for (int i = 0; i < MaxPiece; i++)
+			{
+				result[j]--;
+
+				resultColor[i] = j;
+
+				if (result[j] == 0)
+				{
+					j++;
+				}
+			}
+
+			resultCount = 0;
+			resultFlameCount = 0;
+
+			MaxOrder = 0;
+
+			for (int i = 0; i < 4; i++)
+			{
+				orderNumber[i] = countPiece[i];
+				order[i] = i;
+			}
+
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = i + 1; j < 4; j++)
+				{
+					if (orderNumber[i] > orderNumber[j])
+					{
+						int tmp = order[i];
+						order[i] = order[j];
+						order[j] = tmp;
+
+						int tmp_2 = orderNumber[i];
+						orderNumber[i] = orderNumber[j];
+						orderNumber[j] = tmp_2;
+
+					}
+				}
+			}
+		}
+
+		break;
+	case kResultPhase:
+
+		resultFlameCount++;
+
+		if (resultFlameCount > 1 && resultCount < 64)
+		{
+			resultFlameCount = 0;
+
+			resultCount++;
+		}
+
+		if (resultFlameCount > 180 && MaxOrder < 4)
+		{
+			MaxOrder++;
+
+			resultFlameCount = 121;
 		}
 
 		break;
@@ -869,7 +1071,7 @@ void PlayScene::Draw()
 	}
 	else
 	{
-		DrawGraph(15, 40, TextureNumberRed[OwnPieceRed], TRUE);
+		DrawGraph(45, 40, TextureNumberRed[OwnPieceRed], TRUE);
 	}
 
 	if (OwnPieceBlue >= 10)
@@ -879,7 +1081,7 @@ void PlayScene::Draw()
 	}
 	else
 	{
-		DrawGraph(1220, 40, TextureNumberRed[OwnPieceBlue], TRUE);
+		DrawGraph(1220, 40, TextureNumberBlue[OwnPieceBlue], TRUE);
 	}
 	
 	if (OwnPieceBlack >= 10)
@@ -889,7 +1091,7 @@ void PlayScene::Draw()
 	}
 	else
 	{
-		DrawGraph(15, 661, TextureNumberBlack[OwnPieceBlack], TRUE);
+		DrawGraph(45, 661, TextureNumberBlack[OwnPieceBlack], TRUE);
 	}
 	
 	if (OwnPieceWhite >= 10)
@@ -921,30 +1123,33 @@ void PlayScene::Draw()
 		}
 	}
 
-	for (int i = 0; i < MaxPiece; i++)
+	if (phase != kResultPhase)
 	{
-		switch (piece[i].color)
+		for (int i = 0; i < MaxPiece; i++)
 		{
-		case kRed:
-			
-			DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kRedPiece], TRUE);
-			
-			break;
-		case kBlue:
-			
-			DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kBluePiece], TRUE);
-			
-			break;
-		case kBlack:
-			
-			DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kBlackPiece], TRUE);
-			
-			break;
-		case kWhite:
-			
-			DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kWhitePiece], TRUE);
-			
-			break;
+			switch (piece[i].color)
+			{
+			case kRed:
+
+				DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kRedPiece], TRUE);
+
+				break;
+			case kBlue:
+
+				DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kBluePiece], TRUE);
+
+				break;
+			case kBlack:
+
+				DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kBlackPiece], TRUE);
+
+				break;
+			case kWhite:
+
+				DrawGraph(piece[i].pos_x - piece[i].kRadius, piece[i].pos_y - piece[i].kRadius, Texture[kWhitePiece], TRUE);
+
+				break;
+			}
 		}
 	}
 
@@ -1056,6 +1261,108 @@ void PlayScene::Draw()
 	case kGameFinish:
 
 		DrawGraph(0, 226.5f, Texture[kCutInFinish], TRUE);
+
+		break;
+	case kResultPhase:
+
+		for (int i = 0; i < resultCount + 1; i++)
+		{
+			switch (resultColor[i])
+			{
+			case kRed:
+				DrawGraph(445.125f + i % 8 * 49.25f, 165.125f + i / 8 * 49.25f, Texture[kRedPiece], TRUE);
+				break;
+			case kBlue:
+				DrawGraph(445.125f + i % 8 * 49.25f, 165.125f + i / 8 * 49.25f, Texture[kBluePiece], TRUE);
+				break;
+			case kBlack:		
+				DrawGraph(445.125f + i % 8 * 49.25f, 165.125f + i / 8 * 49.25f, Texture[kBlackPiece], TRUE);
+				break;
+			case kWhite:		
+				DrawGraph(445.125f + i % 8 * 49.25f, 165.125f + i / 8 * 49.25f, Texture[kWhitePiece], TRUE);
+				break;
+			}
+		}
+
+		if (resultFlameCount > 120)
+		{
+			DrawGraph(0, 0, Texture[kBackGroundResult], TRUE);
+
+			DrawGraph(501, 34, Texture[kResultTitle], TRUE);
+
+			for (int i = 0; i < 4; i++)
+			{
+				DrawGraph(454, 246 + i * 110, TexturePlayerNumber[i], TRUE);
+
+				DrawGraph(802, 246 + i * 110, TextureSheets[i], TRUE);
+			}
+
+			for (int i = 0; i < MaxOrder; i++)
+			{
+				switch (order[i])
+				{
+				case 0:
+					if (countPiece[0] >= 10)
+					{
+						DrawGraph(730, 246, TextureResultNumberRed[countPiece[0] % 10], TRUE);
+						DrawGraph(660, 246, TextureResultNumberRed[countPiece[0] / 10], TRUE);
+					}
+					else
+					{
+						DrawGraph(730, 246, TextureResultNumberRed[countPiece[0]], TRUE);
+					}
+					break;
+				case 1:
+					if (countPiece[1] >= 10)
+					{
+						DrawGraph(730, 356, TextureResultNumberBlue[countPiece[1] % 10], TRUE);
+						DrawGraph(660, 356, TextureResultNumberBlue[countPiece[1] / 10], TRUE);
+					}
+					else
+					{
+						DrawGraph(730, 356, TextureResultNumberBlue[countPiece[1]], TRUE);
+					}
+					break;
+				case 2:
+					if (countPiece[2] >= 10)
+					{
+						DrawGraph(730, 466, TextureResultNumberBlack[countPiece[2] % 10], TRUE);
+						DrawGraph(660, 466, TextureResultNumberBlack[countPiece[2] / 10], TRUE);
+					}
+					else
+					{
+						DrawGraph(730, 466, TextureResultNumberBlack[countPiece[2]], TRUE);
+					}
+					break;
+				case 3:
+					if (countPiece[3] >= 10)
+					{
+						DrawGraph(730, 576, TextureResultNumberWhite[countPiece[3] % 10], TRUE);
+						DrawGraph(660, 576, TextureResultNumberWhite[countPiece[3] / 10], TRUE);
+					}
+					else
+					{
+						DrawGraph(730, 576, TextureResultNumberWhite[countPiece[3]], TRUE);
+					}
+					break;
+				}
+			}
+		}
+
+		if (resultFlameCount > 240)
+		{
+			DrawGraph(175, 176, TextureWin[order[3]], TRUE);
+		}
+
+		if (resultFlameCount > 300)
+		{
+			DrawGraph(459, 545, Texture[kReturnTitle], TRUE);
+			
+			if (IsKeyPushed(KEY_INPUT_RETURN))
+			{
+				FinishedGame = true;
+			}
+		}
 
 		break;
 	default:

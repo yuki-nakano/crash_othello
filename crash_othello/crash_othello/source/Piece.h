@@ -44,7 +44,7 @@ private:
 	double V_Y = 0.0f;
 
 	float g = 9.8f;
-	float M = 0.3f;
+	float M = 1.0f;
 	float kUp = 0.0f;
 	float kDown = 500.0f;
 	float kRight = 500.0f;
