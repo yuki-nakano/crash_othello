@@ -792,6 +792,15 @@ void PlayScene::Exec()
 
 		if (skillState[turnNumber % 4] == kActiveSkill)
 		{
+			switch (Character[turnNumber % 4])
+			{
+			case kHANABI:
+				Hanabi = false;
+				break;
+			case kINBIJIBURU:
+				Inbijiburu = false;
+				break;
+			}
 			skillState[turnNumber % 4] = kUsedSkill;
 		}
 
