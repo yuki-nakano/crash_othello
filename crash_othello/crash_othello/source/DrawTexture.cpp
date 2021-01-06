@@ -1,10 +1,25 @@
 ﻿#include "./common.h"
 
+int TextureData::Title;
 int TextureData::BackGround_BLUE;
 int TextureData::Button_Start;
 int TextureData::Button_Rule;
 
 int TextureData::Description;
+int TextureData::Enter;
+int TextureData::Esc;
+int TextureData::DescFrame;
+int TextureData::DescLeft;
+int TextureData::DescRight;
+int TextureData::Desc_Light;
+int TextureData::Desc_Dark;
+int TextureData::Desc_tex1;
+int TextureData::Desc_tex2;
+int TextureData::Desc_tex3;
+int TextureData::Desc_tex4;
+int TextureData::Desc_tex5;
+int TextureData::Desc_Desc;
+//int TextureData::
 
 int TextureData::NumberOfPeople;
 
@@ -59,6 +74,12 @@ int TextureData::Cursor4_3;
 int TextureData::Cursor4_4;
 
 int TextureData::StageSelect;
+int TextureData::Stage1;
+int TextureData::Stage2;
+int TextureData::Stage3;
+int TextureData::StageConfirm1;
+int TextureData::StageConfirm2;
+int TextureData::StageConfirm3;
 
 TextureData::TextureData()
 {
@@ -92,10 +113,24 @@ TextureData::~TextureData()
 
 bool TextureData::DeleteTex()
 {
+	DeleteGraph(TextureData::Title);
 	DeleteGraph(TextureData::BackGround_BLUE);
 	DeleteGraph(TextureData::Button_Start);
 	DeleteGraph(TextureData::Button_Rule);
 	DeleteGraph(TextureData::Description);
+	DeleteGraph(TextureData::Enter);
+	DeleteGraph(TextureData::Esc);
+	DeleteGraph(TextureData::DescFrame);
+	DeleteGraph(TextureData::DescLeft);
+	DeleteGraph(TextureData::DescRight);
+	DeleteGraph(TextureData::Desc_Light);
+	DeleteGraph(TextureData::Desc_Dark);
+	DeleteGraph(TextureData::Desc_tex1);
+	DeleteGraph(TextureData::Desc_tex2);
+	DeleteGraph(TextureData::Desc_tex3);
+	DeleteGraph(TextureData::Desc_tex4);
+	DeleteGraph(TextureData::Desc_tex5);
+	DeleteGraph(TextureData::Desc_Desc);
 	DeleteGraph(TextureData::NumberOfPeople);
 	DeleteGraph(TextureData::CharacterSelect);
 	DeleteGraph(TextureData::Character1);
@@ -143,6 +178,12 @@ bool TextureData::DeleteTex()
 	DeleteGraph(TextureData::Cursor4_3);
 	DeleteGraph(TextureData::Cursor4_4);
 	DeleteGraph(TextureData::StageSelect);
+	DeleteGraph(TextureData::Stage1);
+	DeleteGraph(TextureData::Stage2);
+	DeleteGraph(TextureData::Stage3);
+	DeleteGraph(TextureData::StageConfirm1);
+	DeleteGraph(TextureData::StageConfirm2);
+	DeleteGraph(TextureData::StageConfirm3);
 
 	return true;
 }

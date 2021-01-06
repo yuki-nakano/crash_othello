@@ -22,6 +22,7 @@ TitleScene::TitleScene()
 	ChangeVolumeSoundMem(255 * SceneBase::VolumePer / 100, SoundData::A);
 
 	//画像の読み込み
+	TextureData::Title = LoadGraph("res/タイトルロゴ.png");
 	TextureData::BackGround_BLUE = LoadGraph("res/haikei_blue.png");
 	TextureData::Button_Start = LoadGraph("res/タイトルボタン_スタート.png");
 	TextureData::Button_Rule = LoadGraph("res/タイトルボタン_ルール.png");
@@ -119,7 +120,7 @@ void TitleScene::Draw()
 		DrawExtendGraph(690, 490, 1040, 635, TextureData::Button_Rule, true);
 	}
 
-	DrawBox(190, 0, 1090, 400, GetColor(0, 0, 0), false);
+	DrawGraph(190, 0, TextureData::Title, true);
 		//画面左上にデバッグ用の文字を黒で表示する
 	DrawString(20, 20, "TitleScene", GetColor(0, 0, 0));
 }

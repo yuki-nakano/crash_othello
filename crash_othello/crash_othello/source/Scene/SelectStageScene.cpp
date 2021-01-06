@@ -1,5 +1,8 @@
 ﻿#include "../common.h"
 
+//int Timer_Start = 0;
+//bool SelectConfirm = false;
+
 SelectStageScene::SelectStageScene()
 {
 	SceneBase::Choice_Min = 1;
@@ -7,7 +10,19 @@ SelectStageScene::SelectStageScene()
 	SceneBase::Choice = 0;
 
 	TextureData::BackGround_BLUE = LoadGraph("res/setumeihaikei.png");
+
+	TextureData::Enter = LoadGraph("res/enter.png");
+	TextureData::Esc = LoadGraph("res/esc.png");
+
 	TextureData::StageSelect = LoadGraph("res/ステージ選択.png");
+
+	TextureData::Stage1 = LoadGraph("res/ステージアイコン_ノーマル.png");
+	TextureData::Stage2 = LoadGraph("res/ステージアイコン_クロス.png");
+	TextureData::Stage3 = LoadGraph("res/ステージアイコン_ボウリング.png");
+
+	TextureData::StageConfirm1 = LoadGraph("res/ノーマルステージ確定.png");
+	TextureData::StageConfirm2 = LoadGraph("res/クロスステージ確定.png");
+	TextureData::StageConfirm3 = LoadGraph("res/ボウリングステージ確定.png");
 }
 
 SelectStageScene::~SelectStageScene()
@@ -17,6 +32,7 @@ SelectStageScene::~SelectStageScene()
 
 void SelectStageScene::Exec()
 {
+	//Timer_Start++;
 	if (IsKeyPushed(KEY_INPUT_RIGHT))
 	{
 		if (Choice == 0)
@@ -69,34 +85,34 @@ void SelectStageScene::Draw()
 {
 	DrawGraph(0, 0, TextureData::BackGround_BLUE, false);
 
-	DrawBox(20, 20, 205, 70, GetColor(0, 0, 0), false);
-	DrawBox(1104, 20, 1260, 85, GetColor(0, 0, 0), false);
+	DrawGraph(20, 20, TextureData::Enter, true);
+	DrawGraph(1104, 20, TextureData::Esc, true);
 
 	DrawGraph(440, 0, TextureData::StageSelect, true);
 
 	if (Choice == 0)
 	{
-		DrawBox(70, 120, 425, 640, GetColor(0, 0, 0), false);
-		DrawBox(462, 120, 819, 640, GetColor(0, 0, 0), false);
-		DrawBox(855, 120, 1210, 640, GetColor(0, 0, 0), false);
+		DrawExtendGraph(70, 120, 425, 640, TextureData::Stage1, true);
+		DrawExtendGraph(462, 120, 819, 640, TextureData::Stage2, true);
+		DrawExtendGraph(855, 120, 1210, 640, TextureData::Stage3, true);
 	}
 	else if (Choice == 1)
 	{
-		DrawBox(60, 110, 435, 650, GetColor(0, 0, 0), false);
-		DrawBox(462, 120, 819, 640, GetColor(0, 0, 0), false);
-		DrawBox(855, 120, 1210, 640, GetColor(0, 0, 0), false);
+		DrawExtendGraph(60, 110, 435, 650, TextureData::Stage1, true);
+		DrawExtendGraph(462, 120, 819, 640, TextureData::Stage2, true);
+		DrawExtendGraph(855, 120, 1210, 640, TextureData::Stage3, true);
 	}
 	else if (Choice == 2)
 	{
-		DrawBox(70, 120, 425, 640, GetColor(0, 0, 0), false);
-		DrawBox(452, 110, 829, 650, GetColor(0, 0, 0), false);
-		DrawBox(855, 120, 1210, 640, GetColor(0, 0, 0), false);
+		DrawExtendGraph(70, 120, 425, 640, TextureData::Stage1, true);
+		DrawExtendGraph(452, 110, 829, 650, TextureData::Stage2, true);
+		DrawExtendGraph(855, 120, 1210, 640, TextureData::Stage3, true);
 	}
 	else if (Choice == 3)
 	{
-		DrawBox(70, 120, 425, 640, GetColor(0, 0, 0), false);
-		DrawBox(462, 120, 819, 640, GetColor(0, 0, 0), false);
-		DrawBox(845, 110, 1220, 650, GetColor(0, 0, 0), false);
+		DrawExtendGraph(70, 120, 425, 640, TextureData::Stage1, true);
+		DrawExtendGraph(462, 120, 819, 640, TextureData::Stage2, true);
+		DrawExtendGraph(845, 110, 1220, 650, TextureData::Stage3, true);
 	}
 
 		//画面左上にデバッグ用の文字を黒で表示する
@@ -105,6 +121,15 @@ void SelectStageScene::Draw()
 
 bool SelectStageScene::IsEnd() const
 {
+	/*if (IsKeyPushed(KEY_INPUT_RETURN) && Choice != 0 && SelectConfirm == false)
+	{
+		Timer_Start = 0;
+		SelectConfirm = true;
+	}
+	if (SelectConfirm == true && Timer_Start >= 120)
+	{
+		return true;
+	}*/
 	if (IsKeyPushed(KEY_INPUT_RETURN) && Choice != 0)
 	{
 		TextureData::DeleteTex();

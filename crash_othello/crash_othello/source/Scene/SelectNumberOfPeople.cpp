@@ -6,7 +6,14 @@ SelectNumberOfPeopleScene::SelectNumberOfPeopleScene()
 	SceneBase::Choice_Max = 2;
 
 	TextureData::BackGround_BLUE = LoadGraph("res/setumeihaikei.png");
+
+	TextureData::Enter = LoadGraph("res/enter.png");
+	TextureData::Esc = LoadGraph("res/esc.png");
+
 	TextureData::NumberOfPeople = LoadGraph("res/プレイ人数選択.png");
+
+	TextureData::Player2 = LoadGraph("res/2人であそぶ.png");
+	TextureData::Player4 = LoadGraph("res/4人であそぶ.png");
 }
 SelectNumberOfPeopleScene::~SelectNumberOfPeopleScene()
 {
@@ -57,26 +64,26 @@ void SelectNumberOfPeopleScene::Draw()
 {
 	DrawGraph(0, 0, TextureData::BackGround_BLUE, false);
 
-	DrawBox(20, 20, 205, 70, GetColor(0, 0, 0), false);
-	DrawBox(1104, 20, 1260, 85, GetColor(0, 0, 0), false);
+	DrawGraph(20, 20, TextureData::Enter, true);
+	DrawGraph(1104, 20, TextureData::Esc, true);
 
 	DrawGraph(375, 0, TextureData::NumberOfPeople, true);
 
 	if (Choice == 0)
 	{
-		DrawBox(275, 120, 630, 640, GetColor(0, 0, 0), false);
-		DrawBox(650, 120, 1005, 640, GetColor(0, 0, 0), false);
+		DrawExtendGraph(275, 120, 630, 640, TextureData::Player2, false);
+		DrawExtendGraph(650, 120, 1005, 640, TextureData::Player4, false);
 	}
 	else if (Choice == 1)
 	{
 		//DrawExtendGraph();
-		DrawBox(265, 110, 640, 650, GetColor(0, 0, 0), false);
-		DrawBox(650, 120, 1005, 640, GetColor(0, 0, 0), false);
+		DrawExtendGraph(265, 110, 640, 650, TextureData::Player2, false);
+		DrawExtendGraph(650, 120, 1005, 640, TextureData::Player4, false);
 	}
 	else if (Choice == 2)
 	{
-		DrawBox(275, 120, 630, 640, GetColor(0, 0, 0), false);
-		DrawBox(640, 110, 1015, 650, GetColor(0, 0, 0), false);
+		DrawExtendGraph(275, 120, 630, 640, TextureData::Player2, false);
+		DrawExtendGraph(640, 110, 1015, 650, TextureData::Player4, false);
 		//DrawExtendGraph();
 	}
 
