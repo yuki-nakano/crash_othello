@@ -108,7 +108,6 @@ enum
 	kNumber_8,
 	kNumber_9,
 };
-
 //スキル
 enum
 {
@@ -154,7 +153,6 @@ int TextureResultNumberWhite[10];
 int TexturePlayerNumber[4];
 int TextureSheets[4];
 int TextureWin[4];
-
 
 PlayScene::PlayScene()
 {
@@ -383,7 +381,40 @@ PlayScene::PlayScene()
 
 PlayScene::~PlayScene()
 {
+	for (int i = 0; i < kTextureMax; i++)
+	{
+		DeleteGraph(Texture[i]);
+		if (i < 10)
+		{
+			DeleteGraph(TextureNumberRed[i]);
+			DeleteGraph(TextureNumberBlue[i]);
+			DeleteGraph(TextureNumberBlack[i]);
+			DeleteGraph(TextureNumberWhite[i]);
 
+			DeleteGraph(TextureResultNumberRed[i]);
+			DeleteGraph(TextureResultNumberBlue[i]);
+			DeleteGraph(TextureResultNumberBlack[i]);
+			DeleteGraph(TextureResultNumberWhite[i]);
+			if (i < 6)
+			{
+				DeleteGraph(TextureSkillIcon[i]);
+				DeleteGraph(TextureSkillCutIn[i]);
+				DeleteGraph(TextureIcon[i]);
+				if (i < 4)
+				{
+					DeleteGraph(TexturePlayerNumber[i]);
+					DeleteGraph(TextureSheets[i]);
+					DeleteGraph(TextureWin[i]);
+					DeleteGraph(TexturePixel[i]);
+					DeleteGraph(TextureCutIn[i]);
+					if (i < 3)
+					{
+						DeleteGraph(TextureReflectEffect[i]);
+					}
+				}
+			}
+		}
+	}
 }
 
 void PlayScene::Exec()
@@ -536,6 +567,25 @@ void PlayScene::Exec()
 		//でバック用
 		if (IsKeyPushed(KEY_INPUT_A))
 		{
+			switch (turn)
+			{
+			case kRed:
+				OwnPieceRed--;
+				break;
+			case kBlue:
+				OwnPieceBlue--;
+				break;
+			case kBlack:
+				OwnPieceBlack--;
+				break;
+			case kWhite:
+				OwnPieceWhite--;
+				break;
+			case kBlank:
+				break;
+			default:
+				break;
+			}
 			piece[turnNumber].SetV(0);
 			pos_X_kami = 0;
 			pos_Y_kami = 0;
@@ -1376,7 +1426,7 @@ void PlayScene::Draw()
 bool PlayScene::IsEnd() const
 {
 	// @@Dummy 遷移確認用の仮処理
-	return (m_Step >= 120);
+	return (FinishedGame);
 }
 
 void PlayScene::Skill(Piece piece[], int num)
