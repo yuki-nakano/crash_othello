@@ -459,7 +459,6 @@ void PlayScene::Exec()
 		phase = kResultPhase;
 	}
 
-
 	countFrame++;
 
 	switch (phase)
@@ -509,6 +508,10 @@ void PlayScene::Exec()
 
 		cutIn_y = 0;
 		countCutIn = 0;
+
+		variateGauge = 0;
+		powerGauge = 0;
+		gaugeDirection = true;
 
 		phase = kCutInPhase;
 
