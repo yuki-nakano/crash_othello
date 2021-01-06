@@ -798,9 +798,9 @@ void PlayScene::Exec()
 
 			float DistanceX = piece[turnNumber].pos_x - piece[i].pos_x;
 			float DistanceY = piece[turnNumber].pos_y - piece[i].pos_y;
-			float CircleDistance = powf(DistanceX, 2.0f) + powf(DistanceY, 2.0f);
+			float CircleDistance = sqrtf(powf(DistanceX, 2.0f) + powf(DistanceY, 2.0f));
 
-			if (CircleDistance < HanabiCount / 3)
+			if (CircleDistance - 22.5f < HanabiCount / 3)
 			{
 				piece[i].color = piece[turnNumber].color;
 			}
@@ -931,8 +931,6 @@ void PlayScene::Exec()
 
 		break;
 	case kFinishPhase:
-
-		
 
 		switch (turn)
 		{
@@ -1255,6 +1253,33 @@ void PlayScene::Draw()
 
 		DrawRectGraph(436, 592, 0, 0, powerGauge / 10, 80, Texture[kGauge], TRUE, FALSE);
 		DrawGraph(436, 592, Texture[kGaugeWhite], TRUE);
+
+		break;
+	case kSkillHanabi:
+
+		int cr;
+
+		switch (turn)
+		{
+		case kRed:
+			cr = GetColor(255, 0, 0);
+			break;
+		case kBlue:
+			cr = GetColor(0, 0, 255);
+			break;
+		case kBlack:
+			cr = GetColor(0, 0, 0);
+			break;
+		case kWhite:
+			cr = GetColor(200, 200, 200);
+			break;
+		case kBlank:
+			break;
+		default:
+			break;
+		}
+
+		DrawCircle(piece[turnNumber].pos_x, piece[turnNumber].pos_y, HanabiCount / 3, cr, FALSE);
 
 		break;
 	case kTurnOverAnimationPhase:

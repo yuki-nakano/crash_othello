@@ -62,7 +62,7 @@ void Collision::ReflectPiece(Piece piece[], int num)
 
 				//piece[num].SetTheta(tmpTheta * 2 - piece[num].GetTheta());
 
-}
+			}
 		}
 	}
 }
