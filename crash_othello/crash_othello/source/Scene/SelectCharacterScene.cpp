@@ -33,16 +33,19 @@ SelectCharacterScene::SelectCharacterScene()
 	set3 = 0;
 	set4 = 0;
 
-	TextureData::BackGround_BLUE	= LoadGraph("res/ゲーム画面背景_青.jpg");
+	TextureData::BackGround_BLUE	= LoadGraph("res/haikei_blue.png");
+
+	TextureData::Enter = LoadGraph("res/enter.png");
+	TextureData::Esc = LoadGraph("res/esc.png");
 
 	TextureData::CharacterSelect	= LoadGraph("res/キャラ選択.png");
 
-	TextureData::Character1			= LoadGraph("res/キャラ1.png");
-	TextureData::Character2			= LoadGraph("res/キャラ2.png");
+	TextureData::Character1			= LoadGraph("res/花火.png");
+	TextureData::Character2			= LoadGraph("res/力こそパワー.png");
 	TextureData::Character3			= LoadGraph("res/インビジブルショット.png");
 	TextureData::Character4			= LoadGraph("res/神の一手.png");
-	TextureData::Character5			= LoadGraph("res/キャラ3.png");
-	TextureData::Character6			= LoadGraph("res/キャラ4.png");
+	TextureData::Character5			= LoadGraph("res/ヘビーショット.png");
+	TextureData::Character6			= LoadGraph("res/マグネット.png");
 
 	TextureData::Player1			= LoadGraph("res/1P.png");
 	TextureData::Player2			= LoadGraph("res/2P.png");
@@ -50,18 +53,18 @@ SelectCharacterScene::SelectCharacterScene()
 	TextureData::Player4			= LoadGraph("res/4P.png");
 
 	TextureData::CharacterFlame		= LoadGraph("res/プレイヤー枠.png");
-	TextureData::Skill_Name1		= LoadGraph("res/スキル.png");
-	TextureData::Skill_Name2		= LoadGraph("res/スキル.png");
+	TextureData::Skill_Name1		= LoadGraph("res/スキルアイコン_花火.png");
+	TextureData::Skill_Name2		= LoadGraph("res/スキルアイコン_力こそパワー.png");
 	TextureData::Skill_Name3		= LoadGraph("res/スキルアイコン_インビジブルショット.png");
 	TextureData::Skill_Name4		= LoadGraph("res/スキルアイコン_神の一手.png");
-	TextureData::Skill_Name5		= LoadGraph("res/スキル.png");
-	TextureData::Skill_Name6		= LoadGraph("res/スキル.png");
-	TextureData::Skill_Desc1		= LoadGraph("res/スキル.png");
-	TextureData::Skill_Desc2		= LoadGraph("res/スキル.png");
+	TextureData::Skill_Name5		= LoadGraph("res/スキルアイコン_ヘビーショット.png");
+	TextureData::Skill_Name6		= LoadGraph("res/スキルアイコン_マグネット.png");
+	TextureData::Skill_Desc1		= LoadGraph("res/スキル説明_花火png.png");
+	TextureData::Skill_Desc2		= LoadGraph("res/スキル説明_力こそパワー.png");
 	TextureData::Skill_Desc3		= LoadGraph("res/スキル説明_インビッジブルショット.png");
 	TextureData::Skill_Desc4		= LoadGraph("res/スキル説明_神の一手.png");
-	TextureData::Skill_Desc5		= LoadGraph("res/スキル.png");
-	TextureData::Skill_Desc6		= LoadGraph("res/スキル.png");
+	TextureData::Skill_Desc5		= LoadGraph("res/スキル説明_ヘビーショット.png");
+	TextureData::Skill_Desc6		= LoadGraph("res/スキル説明_マグネット.png");
 	TextureData::Icon				= LoadGraph("res/キャラクター一覧.png");
 
 	TextureData::Cursor1_1			= LoadGraph("res/キャラ選択中枠1ｐ_1.png");
@@ -88,6 +91,23 @@ SelectCharacterScene::SelectCharacterScene()
 	TextureData::SetCursor2			= LoadGraph("res/キャラ確定枠２ｐ.png");
 	TextureData::SetCursor3			= LoadGraph("res/キャラ確定枠３ｐ.png");
 	TextureData::SetCursor4			= LoadGraph("res/キャラ確定枠４ｐ.png");
+
+
+	SceneBase::back_posx1 = 0.0f;
+	SceneBase::back_posy1 = 0.0f;
+	SceneBase::back_posx2 = 0.0f;
+	SceneBase::back_posy2 = -720.0f;
+	SceneBase::back_posx3 = 1280.0f;
+	SceneBase::back_posy3 = -720.0f;
+	SceneBase::back_posx4 = 1280.0f;
+	SceneBase::back_posy4 = -1440.0f;
+	SceneBase::back_posx5 = 0.0f;
+	SceneBase::back_posy5 = 720.0f;
+	SceneBase::back_posx6 = 1280.0f;
+	SceneBase::back_posy6 = 0.0f;
+
+	SceneBase::scroll_speedx = 8.0f;
+	SceneBase::scroll_speedy = 4.5f;
 }
 
 SelectCharacterScene::~SelectCharacterScene()
@@ -97,6 +117,50 @@ SelectCharacterScene::~SelectCharacterScene()
 
 void SelectCharacterScene::Exec()
 {	
+	back_posx1 -= scroll_speedx;
+	back_posy1 += scroll_speedy;
+	back_posx2 -= scroll_speedx;
+	back_posy2 += scroll_speedy;
+	back_posx3 -= scroll_speedx;
+	back_posy3 += scroll_speedy;
+	back_posx4 -= scroll_speedx;
+	back_posy4 += scroll_speedy;
+	back_posx5 -= scroll_speedx;
+	back_posy5 += scroll_speedy;
+	back_posx6 -= scroll_speedx;
+	back_posy6 += scroll_speedy;
+
+	if (back_posx1 <= -1280)
+	{
+		back_posx1 = 1280;
+		back_posy1 = -720;
+	}
+	if (back_posx3 <= -1280)
+	{
+		back_posx3 = 1280;
+		back_posy3 = -720;
+	}
+	if (back_posx2 <= -1280)
+	{
+		back_posx2 = 1280;
+		back_posy2 = -1440;
+	}
+	if (back_posx4 <= -1280)
+	{
+		back_posx4 = 1280;
+		back_posy4 = -1440;
+	}
+	if (back_posx5 <= -1280)
+	{
+		back_posx5 = 1280;
+		back_posy5 = 0;
+	}
+	if (back_posx6 <= -1280)
+	{
+		back_posx6 = 1280;
+		back_posy6 = 0;
+	}
+
 	if (IsKeyPushed(KEY_INPUT_ESCAPE))
 	{
 		SceneManager::SetNextScene(SceneID_SelectNumberOfPeople);
@@ -253,10 +317,15 @@ void SelectCharacterScene::Exec()
 
 void SelectCharacterScene::Draw()
 {
-	DrawGraph(0, 0, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx1, back_posy1, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx2, back_posy2, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx3, back_posy3, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx4, back_posy4, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx5, back_posy5, TextureData::BackGround_BLUE, false);
+	DrawGraph(back_posx6, back_posy6, TextureData::BackGround_BLUE, false);
 
-	DrawBox(20, 20, 205, 70, GetColor(0, 0, 0), false);
-	DrawBox(1104, 20, 1260, 85, GetColor(0, 0, 0), false);
+	DrawGraph(20, 20, TextureData::Enter, true);
+	DrawGraph(1104, 20, TextureData::Esc, true);
 
 	DrawGraph(340, 0, TextureData::CharacterSelect, true);
 	DrawGraph(475, 160, TextureData::Icon, true);
@@ -724,7 +793,7 @@ void SelectCharacterScene::Draw()
 	DrawGraph(1160, 568, TextureData::Player4, true);
 
 		//画面左上にデバッグ用の文字を黒で表示する
-	DrawString(20, 20, "SelectCharacterScene", GetColor(0, 0, 0));
+	//DrawString(20, 20, "SelectCharacterScene", GetColor(0, 0, 0));
 }
 
 bool SelectCharacterScene::IsEnd() const

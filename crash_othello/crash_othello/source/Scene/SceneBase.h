@@ -26,6 +26,22 @@ public:
 
 	static int Stage;
 
+	static float back_posx1;
+	static float back_posy1;
+	static float back_posx2;
+	static float back_posy2;
+	static float back_posx3;
+	static float back_posy3;
+	static float back_posx4;
+	static float back_posy4;
+	static float back_posx5;
+	static float back_posy5;
+	static float back_posx6;
+	static float back_posy6;
+
+	static float scroll_speedx;
+	static float scroll_speedy;
+
 	Player P1;
 	Player P2;
 	Player P3;
