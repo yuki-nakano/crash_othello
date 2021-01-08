@@ -1513,6 +1513,8 @@ void PlayScene::Draw()
 
 bool PlayScene::IsEnd() const
 {
+	SceneManager::SetNextScene(SceneID_Title);
+
 	// @@Dummy 遷移確認用の仮処理
 	return (FinishedGame);
 }

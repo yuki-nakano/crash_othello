@@ -7,7 +7,7 @@ SceneManager::SceneManager()
 	:m_pScene(nullptr)
 {
 	//最初に実行するシーンを作成する
-	SetNextScene(SceneID_Play);
+	SetNextScene(SceneID_Title);
 	m_pScene = create_NextScene();
 }
 

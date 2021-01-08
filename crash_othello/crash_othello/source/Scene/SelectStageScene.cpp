@@ -123,17 +123,17 @@ void SelectStageScene::Exec()
 		{
 		case 1:
 			SceneBase::Stage = 1;
-			SceneManager::SetNextScene(SceneID_Title);
+			SceneManager::SetNextScene(SceneID_Play);
 			//SceneManager::SetNextScene(SceneID_Play);
 			break;
 		case 2:
 			SceneBase::Stage = 2;
-			SceneManager::SetNextScene(SceneID_Title);
+			SceneManager::SetNextScene(SceneID_Play);
 			//SceneManager::SetNextScene(SceneID_Play);
 			break;
 		case 3:
 			SceneBase::Stage = 3;
-			SceneManager::SetNextScene(SceneID_Title);
+			SceneManager::SetNextScene(SceneID_Play);
 			//SceneManager::SetNextScene(SceneID_Play);
 			break;
 		default:
