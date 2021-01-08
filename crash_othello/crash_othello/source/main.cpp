@@ -43,7 +43,7 @@ int WINAPI WinMain(
 			UpdateKeyStatus();
 
 			//ゲーム処理
-			GameProcessing();
+			//GameProcessing();
 			
 			ClearDrawScreen();
 			clsDx();
@@ -55,7 +55,7 @@ int WINAPI WinMain(
 			pSceneMng->Draw();
 
 			//描画処理
-			DrawProcessing();
+			//DrawProcessing();
 			ScreenFlip();
 		}
 	}

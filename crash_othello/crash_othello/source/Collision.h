@@ -4,11 +4,11 @@
 class Collision
 {
 public:
-	void ReflectPiece(Piece piece[], int num);
-	void ChengeIsMoving(Piece piece[]);
+	static void ReflectPiece(Piece piece[], int num);
+	static void ChengeIsMoving(Piece piece[]);
 
 private:
-	bool collid(Piece move_piece, Piece piece);
+	static bool collid(Piece move_piece, Piece piece);
 };
 
 

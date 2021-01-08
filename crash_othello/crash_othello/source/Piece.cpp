@@ -117,8 +117,35 @@ void Piece::DecomposeVec()
 		isMoving = false;
 		return;
 	}
-	V_X = cosf(Theta * M_PI / 180) * V;
-	V_Y = sinf(Theta * M_PI / 180) * V * -1;
+	V_X = cos(Theta * M_PI / 180) * V;
+	V_Y = sin(Theta * M_PI / 180) * V * -1;
+}
+
+void Piece::SetWall(int stage_num)
+{
+	switch (stage_num)
+	{
+	case 1:
+		kUp = 90.0f;
+		kDown = 630.0f;
+		kRight = 1070.0f;
+		kLeft = 210.0f;
+		break;
+	case 2:
+		kUp = 0.0f;
+		kDown = 0.0f;
+		kRight = 0.0f;
+		kLeft = 0.0f;
+		break;
+	case 3:
+		kUp = 0.0f;
+		kDown = 0.0f;
+		kRight = 0.0f;
+		kLeft = 0.0f;
+		break;
+	default:
+		break;
+	}
 }
 
 void Piece::SetV(float v)

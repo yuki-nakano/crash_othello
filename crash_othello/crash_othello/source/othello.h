@@ -29,14 +29,14 @@ private:
 	void ChangCoordinate(Direction direction, int* X, int* Y, bool WhichDirection);
 
 private:
-	int CountTurnOver;
-	bool CanTurnOver;
+	int CountTurnOver = 0;
+	bool CanTurnOver = false;
 	int CountFrame = 0;
 
 public:
-	bool IsInitialized;
-	int X;
-	int Y;
+	bool IsInitialized = false;
+	int X = 0;
+	int Y = 0;
 };
 
 #endif // !OTHELLO_H
