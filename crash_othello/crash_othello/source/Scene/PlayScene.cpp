@@ -156,6 +156,18 @@ int TextureWin[4];
 
 PlayScene::PlayScene()
 {
+	for (int i = 0; i < 3; i++)
+	{
+		TextureBackGround_posX[i] = 0;
+		TextureBackGround_posY[i] = (i - 1) * 720;
+
+		TextureBackGround_posX_2[i] = 1280;
+		TextureBackGround_posY_2[i] = (i - 2) * 720;
+
+
+	}
+	
+
 	Character[0] = kKAMINOITTE;
 	Character[1] = kTIKARAKOSO;
 	Character[2] = kINBIJIBURU;
@@ -419,6 +431,25 @@ PlayScene::~PlayScene()
 
 void PlayScene::Exec()
 {
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	TextureBackGround_posX[i] -= 16;
+	//	TextureBackGround_posY[i] += 9;
+	//	if (TextureBackGround_posX[i] == -1280)
+	//	{
+	//		TextureBackGround_posX[i] += 2560;
+	//		TextureBackGround_posY[i] -= 1440;
+	//	}
+
+	//	TextureBackGround_posX_2[i] -= 16;
+	//	TextureBackGround_posY_2[i] += 9;
+	//	if (TextureBackGround_posX_2[i] == -1280)
+	//	{
+	//		TextureBackGround_posX_2[i] += 2560;
+	//		TextureBackGround_posY_2[i] -= 1440;
+	//	}
+	//}
+
 	//デバッグ用
 	if (IsKeyPushed(KEY_INPUT_R))
 	{
@@ -488,6 +519,32 @@ void PlayScene::Exec()
 		}
 
 		phase = kResultPhase;
+	}
+	if (IsKeyPushed(KEY_INPUT_N))
+	{
+		switch (turn)
+		{
+		case kRed:
+			OwnPieceRed--;
+			break;
+		case kBlue:
+			OwnPieceBlue--;
+			break;
+		case kBlack:
+			OwnPieceBlack--;
+			break;
+		case kWhite:
+			OwnPieceWhite--;
+			break;
+		case kBlank:
+			break;
+		default:
+			break;
+		}
+
+		phase = kFinishPhase;
+
+		piece[turnNumber].color = kBlank;
 	}
 
 	countFrame++;
@@ -1083,6 +1140,12 @@ void PlayScene::Exec()
 
 void PlayScene::Draw()
 {
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	DrawGraph(TextureBackGround_posX[i], TextureBackGround_posY[i], Texture[kBackGroundBlue], TRUE);
+	//	DrawGraph(TextureBackGround_posX_2[i], TextureBackGround_posY_2[i], Texture[kBackGroundBlue], TRUE);
+	//}
+
 	DrawGraph(0, 0, Texture[kBackGroundBlue], TRUE);
 
 	switch (stage)

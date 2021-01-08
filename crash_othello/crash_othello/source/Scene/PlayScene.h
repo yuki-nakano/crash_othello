@@ -64,6 +64,13 @@ private:
 
 	bool FinishedGame = false;
 
+	int TextureBackGround_posX[3];
+	int TextureBackGround_posY[3];
+
+	int TextureBackGround_posX_2[3];
+	int TextureBackGround_posY_2[3];
+
+
 };
 
 #endif // !PALYSCENE_H
